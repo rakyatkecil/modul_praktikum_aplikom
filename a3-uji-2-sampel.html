@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Acara 3 Uji 2 Sampel | Modul Praktikum Aplikasi Komputer dengan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Acara 3 Uji 2 Sampel | Modul Praktikum Aplikasi Komputer dengan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Acara 3 Uji 2 Sampel | Modul Praktikum Aplikasi Komputer dengan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dimas Wicaksono" />
+
+
+<meta name="date" content="2023-07-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a2-deskriptif.html"/>
+<link rel="next" href="a4-uji-anova.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pendahuluan</a></li>
+<li class="chapter" data-level="1" data-path="a1-pengenalan.html"><a href="a1-pengenalan.html"><i class="fa fa-check"></i><b>1</b> Pengenalan Statistik dengan R</a></li>
+<li class="chapter" data-level="2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html"><i class="fa fa-check"></i><b>2</b> Statistik Deskriptif</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#prinsip"><i class="fa fa-check"></i><b>2.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="2.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-lulusan"><i class="fa fa-check"></i><b>2.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="2.3" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-mata-kuliah"><i class="fa fa-check"></i><b>2.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="2.4" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#a2-materi"><i class="fa fa-check"></i><b>2.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>2.4.1</b> Ukuran Pemusatan Data</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-penyebaran-data"><i class="fa fa-check"></i><b>2.4.2</b> Ukuran Penyebaran Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#kegiatan-praktikum"><i class="fa fa-check"></i><b>2.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="2.6" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#tugas"><i class="fa fa-check"></i><b>2.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html"><i class="fa fa-check"></i><b>3</b> Uji 2 Sampel</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#prinsip-1"><i class="fa fa-check"></i><b>3.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="3.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-lulusan-1"><i class="fa fa-check"></i><b>3.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="3.3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-mata-kuliah-1"><i class="fa fa-check"></i><b>3.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="3.4" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#materi"><i class="fa fa-check"></i><b>3.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas"><i class="fa fa-check"></i><b>3.4.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.4.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan"><i class="fa fa-check"></i><b>3.4.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#kegiatan-praktikum-1"><i class="fa fa-check"></i><b>3.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas-1"><i class="fa fa-check"></i><b>3.5.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.5.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan-1"><i class="fa fa-check"></i><b>3.5.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#tugas-1"><i class="fa fa-check"></i><b>3.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html"><i class="fa fa-check"></i><b>4</b> Uji Beda &gt; 2 Kelompok</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#prinsip-2"><i class="fa fa-check"></i><b>4.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-lulusan-2"><i class="fa fa-check"></i><b>4.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="4.3" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-mata-kuliah-2"><i class="fa fa-check"></i><b>4.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="4.4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#materi-1"><i class="fa fa-check"></i><b>4.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-sampel-bebas"><i class="fa fa-check"></i><b>4.4.1</b> Uji Beda &gt; 2 Sampel Bebas</a></li>
+<li class="chapter" data-level="4.4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.4.2</b> Uji Beda &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresi.html"><a href="regresi.html"><i class="fa fa-check"></i><b>5</b> Regresi</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regresi.html"><a href="regresi.html#prinsip-3"><i class="fa fa-check"></i><b>5.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="5.2" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-lulusan-3"><i class="fa fa-check"></i><b>5.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="5.3" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-mata-kuliah-3"><i class="fa fa-check"></i><b>5.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="5.4" data-path="regresi.html"><a href="regresi.html#materi-2"><i class="fa fa-check"></i><b>5.4</b> MATERI</a></li>
+<li class="chapter" data-level="5.5" data-path="regresi.html"><a href="regresi.html#kegiatan-praktikum-3"><i class="fa fa-check"></i><b>5.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="5.6" data-path="regresi.html"><a href="regresi.html#tugas-3"><i class="fa fa-check"></i><b>5.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html"><i class="fa fa-check"></i><b>6</b> Lampiran Tugas dan Laporan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#prinsip-4"><i class="fa fa-check"></i><b>6.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="6.2" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-lulusan-4"><i class="fa fa-check"></i><b>6.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="6.3" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-mata-kuliah-4"><i class="fa fa-check"></i><b>6.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="6.4" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#materi-3"><i class="fa fa-check"></i><b>6.4</b> MATERI</a></li>
+<li class="chapter" data-level="6.5" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#kegiatan-praktikum-4"><i class="fa fa-check"></i><b>6.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="6.6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#tugas-4"><i class="fa fa-check"></i><b>6.6</b> TUGAS</a></li>
+<li class="chapter" data-level="6.7" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#math-example"><i class="fa fa-check"></i><b>6.7</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daftar-pustaka.html"><a href="daftar-pustaka.html"><i class="fa fa-check"></i>Daftar Pustaka</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modul Praktikum Aplikasi Komputer dengan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a3-uji-2-sampel" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Acara 3</span> Uji 2 Sampel<a href="a3-uji-2-sampel.html#a3-uji-2-sampel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="prinsip-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> PRINSIP<a href="a3-uji-2-sampel.html#prinsip-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kadang kala sebuah penelitian ingin mengetahui apakah ada perbedaan hasil dari dua perlakuan yang berbeda. Seperti perbedaan nilai hasil kuis pada kelas yang menggunakan pembelajaran berbasis video pembelajaran dan pembelajaran secara langsung. Apabila hasil kuis menunjukkan tidak ada perbedaan nilai hasil kuis, maka pembelajaran berbasis video dapat direkomendasikan untuk dilakukan, sebab video pembelajaran dapat ditonton secara berulang kali. Pada kasus yang demikian, penentuan ada atau tidaknya perbedaan nilai dapat dilihat dari rerata nilai kuis yang didapat. Nilai rerata yang tidak berbeda signifikan menjadi acuan dalam menyimpulkan bahwa tidak ada perbedaan antara nilai kuis dari kedua metode pembelajaran yang berbeda. Kasus demikian dalam dunia kesehatan pun cukup banyak, seperti perbandingan jumlah kematian nyamuk dengan menggunakan dua jenis larvasida yang berbeda; perbedaan penurunan kadar limbah dengan menggunakan dua alat yang berbeda; dan masih banyak kasus yang lainnya.</p>
+</div>
+<div id="capaian-pembelajaran-lulusan-1" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> CAPAIAN PEMBELAJARAN LULUSAN<a href="a3-uji-2-sampel.html#capaian-pembelajaran-lulusan-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="capaian-pembelajaran-mata-kuliah-1" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> CAPAIAN PEMBELAJARAN MATA KULIAH<a href="a3-uji-2-sampel.html#capaian-pembelajaran-mata-kuliah-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="materi" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> MATERI<a href="a3-uji-2-sampel.html#materi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Terdapat beberapa uji yang digunakan untuk membuktikan bahwa terdapat perbedaan antar dua kelompok. Uji ini dibedakan berdasarkan sifat dari sampel yaitu bebas dan berbasangan. Sampel bebas adalah sampel yang dimana data sampel pertama dan data sampel kedua diambil dari subjek yang berbeda, sedangkan sampel berpasangan yaitu data pada sampel pertama dan kedua merupakan subjek yang sama (pengukuran dua kali yaitu sebelum dan setelah perlakuan atau beberapa waktu tertentu).</p>
+<p>Berdasarkan metode statistika yang digunakan, yaitu statistika parametrik dan statistika non-parametrik. Penggunaan metode statistika parametrik hanya dapat dilakukan apabila asumsi-asumsi pengujiannya telah terpenuhi. Sedangkan pada metode statistika non-parametrik tidak memerlukan asumsi apapun untuk melakukan pengujiannya.</p>
+<blockquote>
+<p>Perlu dicatat bahwa uji beda hanya dapat dilakukan pada data yang berskala interval dan rasio. Sedangkan untuk uji dengan metode statistika non-parametrik dapat dilakukan juga untuk data berskala ordinal.</p>
+</blockquote>
+<p>Uji-uji yang digunakan pada praktikum ini adalah:</p>
+<ol style="list-style-type: decimal">
+<li>Uji Sampel Bebas
+<ul>
+<li>Uji t Sampel Bebas (Parametrik)</li>
+<li>Uji Mann-Withney (Non-Parametrik)</li>
+</ul></li>
+<li>Uji Sampel Berpasangan
+<ul>
+<li>Uji t Sampel Berpasangan (Parametrik)</li>
+<li>Uji Wilcoxon (Non-Parametrik)</li>
+</ul></li>
+</ol>
+<div id="sampel-bebas" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Sampel Bebas<a href="a3-uji-2-sampel.html#sampel-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Terkadang kita ingin mengetahui apakah sebuah kelompok data (sampel data) memiliki nilai rata-rata yang sama dengan kelompok data yang lain. Tentu kata “sama” dalam hal ini tidak memiliki arti sama persis sebab hal ini sangat jarang terjadi. Akan selalu ada kesalahan yang dapat ditolernasi disetiap pengujian.</p>
+<p>Andaikan dari 10 sampel mahasiswa laki-laki diperoleh rata-rata tinggi badan = 168,5 dan dari 10 sampel mahasiswa perempuan diperoleh tinggi badan = 167,2. Apakah dapat disimpulkan bahwa tinggi badan mahasiswa laki-laki = tinggi badan mahasiswa perempuan? Jika “ya”, maka apa dasar pengambilan kesimpulan tersebut?</p>
+<p>Uji 2 sampel bebas merupakan uji statistik yang digunakan untuk menguji nilai rata-rata dari 2 kelompok/sampel/populasi yang saling bebas. Terdapat 2 pengujian yang dapat dilakukan pada kasus ini, yang pertama adalah pengujian dengan mengganakan metode statistik parametrik yaitu Uji t 2 Sampel bebas dan pengujian dengan mengganakan metode statistik non-parametrik yaitu Uji Mann Whitney.</p>
+<p>Berikut ini adalah contoh kasus 2 sampel bebas:</p>
+<ul>
+<li>Kepala Dinas Kesehatan ingin menguji apakah ada perbedaan jumlah kunjungan pada puskesmas yang berada di daerah perkotaan dan daerah pedesaan.</li>
+<li>Seorang peneliti menduga bahwa terdapat perbedaan kandungan gizi antara roti tawar yang biasa dengan roti tawar yang telah ditambahkan dengan tepung kelor.</li>
+<li>Perusahaan farmasi A meyakini bahwa produk obat penurun gula darah yang mereka produksi dapat menurunkan kadar gula lebih baik daripada produk dari perusahaan farmasi B.</li>
+</ul>
+<div id="uji-t-sampel-bebas" class="section level4 hasAnchor" number="3.4.1.1">
+<h4><span class="header-section-number">3.4.1.1</span> Uji t Sampel Bebas<a href="a3-uji-2-sampel.html#uji-t-sampel-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji t Sampel Bebas adalah uji yang digunakan untuk membuktikan bahwa ada perbedaan antara rerata dari dua kelompok. Uji ini termasuk dalam metode statistika parametrik.</p>
+<div id="a3-hipotesis-t-bebas" class="section level5 hasAnchor" number="3.4.1.1.1">
+<h5><span class="header-section-number">3.4.1.1.1</span> Hipotesis Uji<a href="a3-uji-2-sampel.html#a3-hipotesis-t-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah rata-rata dari suatu sampel/kelompok berbeda (dapat lebih besar atau lebih kecil) dari sampel/kelompok yang lain. Hipotesis ditulis sebagai berikut:<br />
+- <span class="math inline">\(H_0 : \mu_1-\mu_2 = d_0\)</span><br />
+- <span class="math inline">\(H_1 : \mu_1-\mu_2 \neq d_0\)</span></p>
+<p>Apabila <span class="math inline">\(d_0 = 0\)</span>, maka hipotesis diatas akan menjadi:<br />
+- <span class="math inline">\(H_0 : \mu_1 = \mu_2\)</span><br />
+- <span class="math inline">\(H_1 : \mu_1 \neq \mu_2\)</span></p>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan rerata dari kelompok pertama (<span class="math inline">\(\mu_1\)</span>) dengan rerata dari kelompok kedua (<span class="math inline">\(\mu_2\)</span>). Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu terdapat perbedaan rerata dari kelompok pertama (<span class="math inline">\(\mu_1\)</span>) dengan rerata dari kelompok kedua (<span class="math inline">\(\mu_2\)</span>). Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antara rerata kedua kelompok.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah terdapat perbedaan antara rerata kedua kelompok.</p>
+</div>
+<div id="asumsi-asumsi-uji-t-sampel-bebas" class="section level5 hasAnchor" number="3.4.1.1.2">
+<h5><span class="header-section-number">3.4.1.1.2</span> Asumsi-asumsi Uji t Sampel Bebas<a href="a3-uji-2-sampel.html#asumsi-asumsi-uji-t-sampel-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Uji t 2 Sampel bebas memiliki beberapa asumsi yang harus terpenuhi, yaitu:</p>
+<ul>
+<li>Sampel/kelompok diambil secara acak</li>
+<li>Hasil observasi saling bebas satu dengan lainnya, tidak bergantung pada observasi lainnya dalam satu kelompok</li>
+<li>Sampel/kelompok berasal dari populasi yang berdistribusi normal. Apabila asumsi ini tidak terpenuhi, maka pengujian dilakukan dengan menggunakan Uji Mann-Withney.</li>
+<li>Memiliki varians antar sampel/kelompok yang sama (homogen)</li>
+</ul>
+<p>Namun pada kasus kedua sampel tidak memiliki varians yang sama (homogen), uji dapat dilanjutkan dengan menggunakan derajat kebebasan yang berbeda.</p>
+</div>
+<div id="langkah-langkah-pengujian" class="section level5 hasAnchor" number="3.4.1.1.3">
+<h5><span class="header-section-number">3.4.1.1.3</span> Langkah-langkah Pengujian<a href="a3-uji-2-sampel.html#langkah-langkah-pengujian" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Terdapat tiga langkah dalam pengujian Uji t Sampel Bebeas. Pertama adalah memastikan bahwa data telah memenuhi asumsi-asumsi pengujian, kemudian dilanjutkan dengan melakukan pengujian. Setelah itu, adalah menentukan apakah hasil nilai signifikansi gagal menolak <span class="math inline">\(H_0\)</span> atau menerima <span class="math inline">\(H_1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Asumsi-asumsi
+<ul>
+<li><p><strong>Sampel diambil secara acak</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Hasil observasi saling bebas satu dengan lainnya</strong>.<br />
+Asumsi ini juga dapat dijawab dengan melihat metode penelitian.</p></li>
+<li><p><strong>Sampel berasal dari populasi yang berdistribusi normal</strong>.<br />
+Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<span class="math inline">\(&lt; 50\)</span>) dan uji Kolomgorov-Smirnov untuk sampel besar (<span class="math inline">\(&gt;= 50\)</span>). Fungsi yang digunakan untuk pengujian normalitas dengan Uji Shapiro-Wilk adalah <code>shapiro.test(sampel)</code> dan dengan Uji Kolmogorov-Smornov adalah <code>ks.test(sampel)</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Sampel berasal dari populasi yang berdistribusi normal</li>
+<li><span class="math inline">\(H_1 :\)</span> Sampel tidak berasal dari populasi yang berdistribusi normal</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<li><p><strong>Memiliki ragam antar sampel yang sama (homogen)</strong>.<br />
+Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
+<li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+</ul></li>
+<li>Pengujian<br />
+Pengujian ini bergantung pada hasil dari Uji Levene’s. Berikut adalah fungsi pengujiannya:
+<ul>
+<li><code>t.test(formula, var.equal=TRUE)</code>, jika hasil Uji Levene’s gagal menolak <span class="math inline">\(H_0\)</span>.</li>
+<li><code>t.test(formula, var.equal=FALSE)</code>, jika hasil Uji Levene’s menerima <span class="math inline">\(H_1\)</span>.</li>
+</ul></li>
+<li>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji t Sampel Bebas akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="a3-uji-2-sampel.html#a3-hipotesis-t-bebas">Hipotesis Uji</a>.</li>
+</ol>
+</div>
+</div>
+<div id="uji-mann-withney" class="section level4 hasAnchor" number="3.4.1.2">
+<h4><span class="header-section-number">3.4.1.2</span> Uji Mann Withney<a href="a3-uji-2-sampel.html#uji-mann-withney" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sering kali data 2 sampel/kelompok saling bebas yang kita temui tidak memenuhi asumsi-asumsi yang diberikan pada Uji t 2 Sampel Independen. Hal ini menyebabkan pengujian tidak dapat diteruskan karena akan meningkatkan kesalahan dalam pengambilan keputusan. Oleh karena itu perlu ada perlakuan/cara lain agar pengujian tetap dapat dilakukan.</p>
+<p>Uji Mann Whitney merupakan metode statistik non parametrik yang digunakan untuk melakukan pengujian terhadap 2 sampel yang independen. Uji Mann Whitney ini sama dengan <strong><em>Wilcoxon Rank Sum Test</em></strong> <span class="citation">(<a href="#ref-chalmer19" role="doc-biblioref">Chalmer 2019</a>)</span>, sehingga tak perlu khawatir apabila tidak menemukan istilah Mann Whitney pada rujukan yang kita gunakan. Sesuai dengan namanya, <strong><em>Wilcoxon Rank Sum Test</em></strong> menggunakan ranking dari data yang kita miliki.</p>
+<div id="a3-hipotesis-m-bebas" class="section level5 hasAnchor" number="3.4.1.2.1">
+<h5><span class="header-section-number">3.4.1.2.1</span> Hipotesis Uji<a href="a3-uji-2-sampel.html#a3-hipotesis-m-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah rata-rata dari suatu sampel/kelompok berbeda (dapat lebih besar atau lebih kecil) dari sampel/kelompok yang lain. Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span> : Tidak ada perbedaan antara kedua kelompok</li>
+<li><span class="math inline">\(H_1\)</span> : Terdapat perbedaan antara kedua kelompok</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan antara kelompok pertama (<span class="math inline">\(\mu_1\)</span>) dengan antara kelompok kedua (<span class="math inline">\(\mu_2\)</span>). Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu terdapat perbedaan antara kelompok pertama (<span class="math inline">\(\mu_1\)</span>) dengan kelompok kedua (<span class="math inline">\(\mu_2\)</span>). Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antara kedua kelompok.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah terdapat perbedaan antara kedua kelompok.</p>
+</div>
+<div id="asumsi-uji" class="section level5 hasAnchor" number="3.4.1.2.2">
+<h5><span class="header-section-number">3.4.1.2.2</span> Asumsi Uji<a href="a3-uji-2-sampel.html#asumsi-uji" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Seperti yang dijelaskan pada <a href="#a3-materi">Materi Acara 3</a> bahwa tidak ada asumsi yang dibutuhkan untuk uji dengan metode statistika non-parameterik. Skala data yang dapat digunakan pada uji ini paling tidak berskala ordinal.</p>
+</div>
+<div id="langkah-langkah-pengujian-1" class="section level5 hasAnchor" number="3.4.1.2.3">
+<h5><span class="header-section-number">3.4.1.2.3</span> Langkah-langkah Pengujian<a href="a3-uji-2-sampel.html#langkah-langkah-pengujian-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ol style="list-style-type: decimal">
+<li><p>Pengujian<br />
+Uji Mann-Withney dilakukan dengan menggunakan fungsi <code>wilcox.test(formula, paired = FALSE)</code>.</p></li>
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Mann-Withney akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="a3-uji-2-sampel.html#a3-hipotesis-m-bebas">Hipotesis Uji</a>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="sampel-berpasangan" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Sampel Berpasangan<a href="a3-uji-2-sampel.html#sampel-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sebelumnya telah kita bahas tentang pengujian pada data yang saling bebas. Namun terkadang peneliti ini mengetahui apakah terdapat perbedaan hasil pada pada data setelah mendapatkan perlakuan tertentu. Peneliti akan mencatat/mengukur kondisi objek sebelum dan setelah mendapatkan perlakukan. Sehingga kini peneliti memiliki 2 kelompok data yaitu data sebelum dan setelah perlakuan. Data jenis ini lebih sering disebut dengan sampel berpasangan (<em>paired/matched samples</em>). Terkadang pada rujukan lain kita akan menemukan istilah yang berbeda, seperti <em>dependent samples</em> <span class="citation">(<a href="#ref-allan18" role="doc-biblioref">Bluman 2018</a>)</span>.</p>
+<p>Berikut ini adalah contoh kasus 2 sampel berpasangan:</p>
+<ul>
+<li>Seorang guru ingin mengatahui apakah terdapat peningkatan nilai matematika siswa kelas X apabila mendapatkan pembelajaran dengan menggunakan media video.</li>
+<li>Seorang peneliti ingin menguji apakah terdapat penurunan tekanan darah pada wanita lanjut usia (lansia) apabila tidak mengkonsumsi makanan yang mengandung penyedap rasa dalam waktu 2 minggu.</li>
+<li>Kelapa Program Studi Ilmu Gizi FKM XX melakukan penelitian terhadap daya terima konsumen pada cilok yang telah mendapatkan tembahan tepung teri dalam proses pembuatannya. Pertama-tama kaprodi memberikan cilok yang biasa dijual kepada panelis, lalu setelah itu panelis membersikan mulutnya dan mencoba cilok yang telah dimodifikasi. Selanjutnya akan dilakukan pengujuan terhadap hasil pendataan tersebut.</li>
+</ul>
+<div id="uji-t-sampel-berpasangan" class="section level4 hasAnchor" number="3.4.2.1">
+<h4><span class="header-section-number">3.4.2.1</span> Uji t Sampel Berpasangan<a href="a3-uji-2-sampel.html#uji-t-sampel-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji t Sampel Berpasangan adalah uji yang digunakan untuk membuktikan bahwa ada perbedaan antara rerata dari dua kelompok yang berpasangan. Uji ini termasuk dalam metode statistika parametrik.</p>
+<div id="a3-hipotesis-t-berpasangan" class="section level5 hasAnchor" number="3.4.2.1.1">
+<h5><span class="header-section-number">3.4.2.1.1</span> Hipotesis Uji<a href="a3-uji-2-sampel.html#a3-hipotesis-t-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah rerata dari suatu sampel sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) berbeda dari sampel sesudah perlakuan (<span class="math inline">\(\mu_{sesudah}\)</span>). Hipotesis ditulis sebagai berikut:<br />
+- <span class="math inline">\(H_0 : \mu_{sebelum}-\mu_{sesudah} = d_0\)</span><br />
+- <span class="math inline">\(H_1 : \mu_{sebelum}-\mu_{sesudah} \neq d_0\)</span></p>
+<p>Apabila <span class="math inline">\(d_0 = 0\)</span>, maka hipotesis diatas akan menjadi:<br />
+- <span class="math inline">\(H_0 : \mu_{sebelum} = \mu_{sesudah}\)</span><br />
+- <span class="math inline">\(H_1 : \mu_{sebelum} \neq \mu_{sesudah}\)</span></p>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan rerata dari sampel sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) dengan rerata dari sampel sesudah (<span class="math inline">\(\mu_{sesudah}\)</span>). Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu terdapat perbedaan rerata dari kelompok sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) dengan rerata dari kelompok sesudah perlakuan (<span class="math inline">\(\mu_{sesudah}\)</span>). Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antara rerata kelompok sebelum dan sesudah perlakuan.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah terdapat perbedaan antara rerata kedua kelompok sebelum dan sesudah perlakuan.</p>
+</div>
+<div id="asumsi-asumsi-pengujian" class="section level5 hasAnchor" number="3.4.2.1.2">
+<h5><span class="header-section-number">3.4.2.1.2</span> Asumsi-asumsi Pengujian<a href="a3-uji-2-sampel.html#asumsi-asumsi-pengujian" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Layaknya pengujian parametrik lainnya, uji t 2 sampel berpasangan juga memiliki beberapa asumsi yang harus dipenuhi. Asumsi-asumsi tersebut ialah:</p>
+<ul>
+<li>Sampel diambil secara acak</li>
+<li>Hasil observasi saling bebas satu dengan lainnya</li>
+<li>Selisih antara data sebelum dan sesudah perlakuan harus berdistribusi normal. Apabila asumsi ini tidak terpenuhi, maka pengujian dilakukan dengan menggunakan Uji Wilcoxon.</li>
+</ul>
+</div>
+<div id="langkah-langkah-pengujian-2" class="section level5 hasAnchor" number="3.4.2.1.3">
+<h5><span class="header-section-number">3.4.2.1.3</span> Langkah-langkah Pengujian<a href="a3-uji-2-sampel.html#langkah-langkah-pengujian-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Seperti halnya Uji t Sampel Bebas, terdapat tiga langkah dalam melakukan Uji t Sampel Berpasangan.</p>
+<ol style="list-style-type: decimal">
+<li><p>Asumsi-asumsi</p>
+<ul>
+<li><p><strong>Sampel diambil secara acak</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Hasil observasi saling bebas satu dengan lainnya</strong>.<br />
+Asumsi ini juga dapat dijawab dengan melihat metode penelitian.</p></li>
+<li><p><strong>Selisih antara data sebelum dan sesudah perlakuan harus berdistribusi normal</strong>.<br />
+Sebelum melakukan uji normalitas. Nilai selisi antara sampel sebelum dan setelah harus dihitung (<span class="math inline">\(D = sebelum - sesudah\)</span>). Sama halnya pada uji t sampel bebas, terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<span class="math inline">\(&lt; 50\)</span>) dan uji Kolomgorov-Smirnov untuk sampel besar (<span class="math inline">\(&gt;= 50\)</span>). Fungsi yang digunakan untuk pengujian normalitas dengan Uji Shapiro-Wilk adalah <code>shapiro.test(D)</code> dan Uji Kolmogorov-Smornov adalah dengan <code>ks.test(D)</code>. Hipotesis pengujiannya adalah:</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Selisi sampel sebelum dan setelah berasal dari populasi yang berdistribusi normal</li>
+<li><span class="math inline">\(H_1 :\)</span> Selisi sampel sebelum dan setelah tidak berasal dari populasi yang berdistribusi normal</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<li><p>Memiliki ragam antar sampel yang sama (homogen).<br />
+Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
+<li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+</ul></li>
+<li><p>Pengujian<br />
+Pengujian dapat dilakukan dengan menggunakan fungsi <code>t.test(formula, paired=TRUE)</code>.</p></li>
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji t Sampel Berpasangan akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="a3-uji-2-sampel.html#a3-hipotesis-t-berpasangan">Hipotesis Uji</a>.</p></li>
+</ol>
+</div>
+</div>
+<div id="uji-wilcoxon" class="section level4 hasAnchor" number="3.4.2.2">
+<h4><span class="header-section-number">3.4.2.2</span> Uji Wilcoxon<a href="a3-uji-2-sampel.html#uji-wilcoxon" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji Wilcoxon merupakan pengujian yang dapat dijadikan alternatif dari uji t sampel berpasangan apabila asumsi kenormalan data tidak terpenuhi. Seperti halnya pengujian non-parametrik lainnya, Uji Wilcoxon tidak memerlukan asumsi normalitas dan dapat digunakan pada data yang berskala ordinal. Para literatur lain, uji ini memiliki nama <strong><em>Wilcoxon Signed-Rank Test</em></strong>. <span class="citation">(<a href="#ref-allan18" role="doc-biblioref">Bluman 2018</a>)</span></p>
+<div id="a3-hipotesis-w-berpasangan" class="section level5 hasAnchor" number="3.4.2.2.1">
+<h5><span class="header-section-number">3.4.2.2.1</span> Hipotesis Uji<a href="a3-uji-2-sampel.html#a3-hipotesis-w-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah sampel sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) berbeda dari sampel sesudah perlakuan (<span class="math inline">\(\mu_{sesudah}\)</span>). Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span> : Tidak ada perbedaan antara kedua kelompok</li>
+<li><span class="math inline">\(H_1\)</span> : Terdapat perbedaan antara kedua kelompok</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan antara sampel sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) dengan sampel sesudah (<span class="math inline">\(\mu_{sesudah}\)</span>). Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu terdapat perbedaan antara kelompok sebelum (<span class="math inline">\(\mu_{sebelum}\)</span>) dengan kelompok sesudah perlakuan (<span class="math inline">\(\mu_{sesudah}\)</span>). Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antara kelompok sebelum dan sesudah perlakuan.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah terdapat perbedaan antara kedua kelompok sebelum dan sesudah perlakuan.</p>
+</div>
+<div id="asumsi-uji-1" class="section level5 hasAnchor" number="3.4.2.2.2">
+<h5><span class="header-section-number">3.4.2.2.2</span> Asumsi Uji<a href="a3-uji-2-sampel.html#asumsi-uji-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Seperti yang dijelaskan pada <a href="#a3-materi">Materi Acara 3</a> bahwa tidak ada asumsi yang dibutuhkan untuk uji dengan metode statistika non-parameterik. Skala data yang dapat digunakan pada uji ini paling tidak berskala ordinal.</p>
+</div>
+<div id="langkah-langkah-pengujian-3" class="section level5 hasAnchor" number="3.4.2.2.3">
+<h5><span class="header-section-number">3.4.2.2.3</span> Langkah-langkah Pengujian<a href="a3-uji-2-sampel.html#langkah-langkah-pengujian-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ol style="list-style-type: decimal">
+<li><p>Pengujian<br />
+Uji Mann-Withney dilakukan dengan menggunakan fungsi <code>wilcox.test(formula, paired = TRUE)</code>.</p></li>
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Wilcoxon akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#a3-hipotesis-w-bebas">Hipotesis Uji</a>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="kegiatan-praktikum-1" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> KEGIATAN PRAKTIKUM<a href="a3-uji-2-sampel.html#kegiatan-praktikum-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kegiatan praktikum ini akan dibagi menjadi dua pengujian, yaitu uji sampel bebas dan berpasangan. Data yang digunakan pada kegiatan ini adalah data <code>iris</code> untuk uji sampel bebas dan data simulasi berat badan tikus sebelum dan setelah perlakuan yang didapat dari <span class="citation">(<a href="#ref-kassambara-paired-t-test" role="doc-biblioref">Kassambara, n.d.</a>)</span>.</p>
+<div id="sampel-bebas-1" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Sampel Bebas<a href="a3-uji-2-sampel.html#sampel-bebas-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Aktifkan data <code>iris</code> dengan menggunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="a3-uji-2-sampel.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Data <code>iris</code> memiliki tiga kategori pada variabel <code>Species</code>, sedangkan untuk keperluan praktikum hanya memerlukan dua kategori saja sebagai sampel/kelompok yang akan dibandingkan. Sedangkan variabel yang akan diuji adalah variabel <code>Sepal.Lenght</code>. Gunakan perintah berikut untuk mem-filter kategori <code>setosa</code> dan <code>virginica</code> saja:</li>
+</ol>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="a3-uji-2-sampel.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="a3-uji-2-sampel.html#cb37-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span> <span class="sc">|</span> Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>)</span>
+<span id="cb37-3"><a href="a3-uji-2-sampel.html#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="a3-uji-2-sampel.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># perintah berikut untuk mendapatkan jumlah masing-masing sampel</span></span>
+<span id="cb37-5"><a href="a3-uji-2-sampel.html#cb37-5" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   Species       n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 setosa       50
+## 2 virginica    50</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="a3-uji-2-sampel.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># perintah untuk memilih variabel Sepal.Length dan Species</span></span>
+<span id="cb39-2"><a href="a3-uji-2-sampel.html#cb39-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> mydata <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length, Species)</span>
+<span id="cb39-3"><a href="a3-uji-2-sampel.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
+<pre><code>##   Sepal.Length Species
+## 1          5.1  setosa
+## 2          4.9  setosa
+## 3          4.7  setosa
+## 4          4.6  setosa
+## 5          5.0  setosa
+## 6          5.4  setosa</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Selanjutnya adalah pengecekan asumsi-asumsi Uji t Sampel Bebas.
+<ul>
+<li>Uji kesamaan ragam antar dua kelompok.</li>
+<li>Uji normalitas. Karena jumlah sampel = 50, maka uji yang digunakan adalah Kolmogorov-Smirnov.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="a3-uji-2-sampel.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) <span class="co"># mengaktifkan paket car</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="a3-uji-2-sampel.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Levene&#39;s </span></span>
+<span id="cb42-2"><a href="a3-uji-2-sampel.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> mydata, <span class="at">centered=</span><span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median: &quot;mean&quot;)
+##       Df F value   Pr(&gt;F)   
+## group  1  11.454 0.001027 **
+##       98                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="a3-uji-2-sampel.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji normalitas Sepal.Length untuk kelompok setosa</span></span>
+<span id="cb44-2"><a href="a3-uji-2-sampel.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length, <span class="st">&quot;pnorm&quot;</span>, </span>
+<span id="cb44-3"><a href="a3-uji-2-sampel.html#cb44-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">mean=</span><span class="fu">mean</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb44-4"><a href="a3-uji-2-sampel.html#cb44-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">sd=</span><span class="fu">sd</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length))</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(mydata[mydata$Species == &quot;setosa&quot;, ]$Sepal.Length, :
+## ties should not be present for the Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  mydata[mydata$Species == &quot;setosa&quot;, ]$Sepal.Length
+## D = 0.11486, p-value = 0.5245
+## alternative hypothesis: two-sided</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="a3-uji-2-sampel.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji normalitas Sepal.Length untuk kelompok virginica</span></span>
+<span id="cb47-2"><a href="a3-uji-2-sampel.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length, <span class="st">&quot;pnorm&quot;</span>, </span>
+<span id="cb47-3"><a href="a3-uji-2-sampel.html#cb47-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">mean=</span><span class="fu">mean</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb47-4"><a href="a3-uji-2-sampel.html#cb47-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">sd=</span><span class="fu">sd</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length))</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(mydata[mydata$Species ==
+## &quot;virginica&quot;, ]$Sepal.Length, : ties should not be present for the
+## Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  mydata[mydata$Species == &quot;virginica&quot;, ]$Sepal.Length
+## D = 0.11503, p-value = 0.5225
+## alternative hypothesis: two-sided</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Hasil Uji Normalitas menunjukan bahwa baik pada kelompok <code>setosa</code> maupun <code>virginica</code> memiliki nilai <code>p-value</code> yang &gt; 0.05. Artinya, Uji Normalitas pada kedua kelompok memutuskan gagal tolak <span class="math inline">\(H_0\)</span>, sehingga dapat disimpulkan data pada kedua kelompok berasal dari populasi yang berdistribusi normal. Asumsi normalitas terpenuhi, sehingga uji yang digunakan adalah Uji t Sampel Bebas.</p></li>
+<li><p>Hasil Uji Levene’s menunjukkan nilai <code>p-value</code> adalah sebesar <code>0.001027</code>. Artinya nilai signifikansi &lt; 0.05 (0.001027 &lt; 0.05). Sehingga keputusan uji adalah tolak <span class="math inline">\(H_0\)</span> dengan kesimpulannya adalah ragam antar dua kelompok tidak sama. Hasil ini sebagai dasar penentuan fungsi Uji t Sampel Bebas dengan ragam antar kelompok tidak sama (tak homogen).</p></li>
+<li><p>Pengujian dilakukan dengan menggunakan perintah berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="a3-uji-2-sampel.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji t Sampel Bebas dengan Asumsi Ragam Tidak Sama (Tak Homogen)</span></span>
+<span id="cb50-2"><a href="a3-uji-2-sampel.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> mydata, <span class="at">var.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Sepal.Length by Species
+## t = -15.386, df = 76.516, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group setosa and group virginica is not equal to 0
+## 95 percent confidence interval:
+##  -1.78676 -1.37724
+## sample estimates:
+##    mean in group setosa mean in group virginica 
+##                   5.006                   6.588</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Berdasrkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> lebih kecil dari <span class="math inline">\(2.2 \times 10^{-16}\)</span> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa terdapat perbedaan rerata <code>Sepal.Length</code> antara kelompok <code>setosa</code> dan kelompok <code>virginica</code>.</p></li>
+<li><p>Apabila salah satu kelompok tidak memenui asumsi normalitas tidak terpenuhi, maka uji yang digunakan adalah Uji Mann-Withney dengan perintah sebagai berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="a3-uji-2-sampel.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Mann-Withey</span></span>
+<span id="cb52-2"><a href="a3-uji-2-sampel.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data=</span>mydata, <span class="at">paired=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Sepal.Length by Species
+## W = 38.5, p-value &lt; 2.2e-16
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Berdasrkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> lebih kecil dari <span class="math inline">\(2.2 \times 10^{-16}\)</span> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa terdapat perbedaan <code>Sepal.Length</code> antara kelompok <code>setosa</code> dan kelompok <code>virginica</code>.</p>
+</div>
+<div id="sampel-berpasangan-1" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Sampel Berpasangan<a href="a3-uji-2-sampel.html#sampel-berpasangan-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Buat data simulasi berat tikus sebelum dan setelah perlakuan <span class="citation">(<a href="#ref-kassambara-paired-t-test" role="doc-biblioref">Kassambara, n.d.</a>)</span>.</li>
+</ol>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="a3-uji-2-sampel.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data in two numeric vectors</span></span>
+<span id="cb54-2"><a href="a3-uji-2-sampel.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++++++++++++++++++++++++</span></span>
+<span id="cb54-3"><a href="a3-uji-2-sampel.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Weight of the mice before treatment</span></span>
+<span id="cb54-4"><a href="a3-uji-2-sampel.html#cb54-4" aria-hidden="true" tabindex="-1"></a>before <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">200.1</span>, <span class="fl">190.9</span>, <span class="fl">192.7</span>, <span class="dv">213</span>, <span class="fl">241.4</span>, <span class="fl">196.9</span>, <span class="fl">172.2</span>, <span class="fl">185.5</span>, <span class="fl">205.2</span>, <span class="fl">193.7</span>)</span>
+<span id="cb54-5"><a href="a3-uji-2-sampel.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Weight of the mice after treatment</span></span>
+<span id="cb54-6"><a href="a3-uji-2-sampel.html#cb54-6" aria-hidden="true" tabindex="-1"></a>after <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">392.9</span>, <span class="fl">393.2</span>, <span class="fl">345.1</span>, <span class="dv">393</span>, <span class="dv">434</span>, <span class="fl">427.9</span>, <span class="dv">422</span>, <span class="fl">383.9</span>, <span class="fl">392.3</span>, <span class="fl">352.2</span>)</span>
+<span id="cb54-7"><a href="a3-uji-2-sampel.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
+<span id="cb54-8"><a href="a3-uji-2-sampel.html#cb54-8" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>( </span>
+<span id="cb54-9"><a href="a3-uji-2-sampel.html#cb54-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;before&quot;</span>, <span class="st">&quot;after&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>),</span>
+<span id="cb54-10"><a href="a3-uji-2-sampel.html#cb54-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">weight =</span> <span class="fu">c</span>(before,  after)</span>
+<span id="cb54-11"><a href="a3-uji-2-sampel.html#cb54-11" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Pengecekan asumsi normalitas pada selisih antara data sebelum dan setelah perlakuan.</li>
+</ol>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="a3-uji-2-sampel.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hitung selisih sebelum dan sesudah</span></span>
+<span id="cb55-2"><a href="a3-uji-2-sampel.html#cb55-2" aria-hidden="true" tabindex="-1"></a>D <span class="ot">=</span> before <span class="sc">-</span> after</span>
+<span id="cb55-3"><a href="a3-uji-2-sampel.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="a3-uji-2-sampel.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Normalitas dengan Shapiro-Wilk, mengapa?</span></span>
+<span id="cb55-5"><a href="a3-uji-2-sampel.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(D)</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  D
+## W = 0.94536, p-value = 0.6141</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Hasil Uji Shapiro-Wilk menunjukkan nilai <code>p-value</code> yang berupa nilai signifikansi sebesar <code>0.6141</code>. Berdasarkan hasil tersebut, didapatkan nilai signifikansi yang &gt; 0.05. Artinya asumsi normalitas terpenuhi dan uji dilanjutkan dengan menggunakan Uji t Sampel Berpasangan.</p></li>
+<li><p>Uji t Sampel Berpasangan dilakukan dengan menggunakan perintah berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="a3-uji-2-sampel.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji t Sampel Berpasangan</span></span>
+<span id="cb57-2"><a href="a3-uji-2-sampel.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> mydata, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  weight by group
+## t = 20.883, df = 9, p-value = 6.2e-09
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  173.4219 215.5581
+## sample estimates:
+## mean difference 
+##          194.49</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Hasil Uji t Sampel Berpasangan mendapatkan nilai <code>p-value</code> sebesar <span class="math inline">\(6.2 \times 10^{-9}\)</span>. Nilai signifikansi tersebut &lt; 0.05, yang artinya keputusan uji adalah terima <span class="math inline">\(H_1\)</span>.</p></li>
+<li><p>Berdasarkan keputusan tersebut, dapat disimpulkan bahwa terdapat perbedaan antara berat badan tikus sebelum dan setelah perlakuan.</p></li>
+<li><p>Apabila asumsi normalitas pada poin 3 tidak terpenuhi, maka pengujian dilanjutkan dengan menggunakan Uji Wilcoxon. Berikut adalah perintah untuk melakukan Uji Wilcoxon:</p></li>
+</ol>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="a3-uji-2-sampel.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Wilcoxon</span></span>
+<span id="cb59-2"><a href="a3-uji-2-sampel.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> mydata, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank exact test
+## 
+## data:  weight by group
+## V = 55, p-value = 0.001953
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Berdasrkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> sebesar <code>0.001953</code> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa terdapat perbedaan <code>Sepal.Length</code> antara kelompok <code>setosa</code> dan kelompok <code>virginica</code>.</p>
+</div>
+</div>
+<div id="tugas-1" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> TUGAS<a href="a3-uji-2-sampel.html#tugas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<h3>Daftar Pustaka<a href="daftar-pustaka.html#daftar-pustaka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-allan18" class="csl-entry">
+Bluman, Allan G. 2018. <em>Elementary Statistics: A Step by Step Approach</em>. 10th ed. New York: McGraw-Hill Education.
+</div>
+<div id="ref-chalmer19" class="csl-entry">
+Chalmer, Bruce J. 2019. <em>Understanding Statistics</em>. Boca Raton: CRC Press.
+</div>
+<div id="ref-kassambara-paired-t-test" class="csl-entry">
+Kassambara, Alboukadel. n.d. <em>Paired Samples Wilcoxon Test in r</em>. <a href="http://www.sthda.com/english/wiki/paired-samples-wilcoxon-test-in-r#compute-paired-sample-wilcoxon-test">http://www.sthda.com/english/wiki/paired-samples-wilcoxon-test-in-r#compute-paired-sample-wilcoxon-test</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a2-deskriptif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a4-uji-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Uji-2-Sampel.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Aplikasi Komputer - Biostatistika.pdf", "Aplikasi Komputer - Biostatistika.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"bibliography": "Daftar Pustaka",
+"split_by": "chapter",
+"split_bib": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

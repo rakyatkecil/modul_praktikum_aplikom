@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Acara 4 Uji Beda &gt; 2 Kelompok | Modul Praktikum Aplikasi Komputer dengan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Acara 4 Uji Beda &gt; 2 Kelompok | Modul Praktikum Aplikasi Komputer dengan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Acara 4 Uji Beda &gt; 2 Kelompok | Modul Praktikum Aplikasi Komputer dengan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dimas Wicaksono" />
+
+
+<meta name="date" content="2023-07-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a3-uji-2-sampel.html"/>
+<link rel="next" href="regresi.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pendahuluan</a></li>
+<li class="chapter" data-level="1" data-path="a1-pengenalan.html"><a href="a1-pengenalan.html"><i class="fa fa-check"></i><b>1</b> Pengenalan Statistik dengan R</a></li>
+<li class="chapter" data-level="2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html"><i class="fa fa-check"></i><b>2</b> Statistik Deskriptif</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#prinsip"><i class="fa fa-check"></i><b>2.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="2.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-lulusan"><i class="fa fa-check"></i><b>2.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="2.3" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-mata-kuliah"><i class="fa fa-check"></i><b>2.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="2.4" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#a2-materi"><i class="fa fa-check"></i><b>2.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>2.4.1</b> Ukuran Pemusatan Data</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-penyebaran-data"><i class="fa fa-check"></i><b>2.4.2</b> Ukuran Penyebaran Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#kegiatan-praktikum"><i class="fa fa-check"></i><b>2.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="2.6" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#tugas"><i class="fa fa-check"></i><b>2.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html"><i class="fa fa-check"></i><b>3</b> Uji 2 Sampel</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#prinsip-1"><i class="fa fa-check"></i><b>3.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="3.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-lulusan-1"><i class="fa fa-check"></i><b>3.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="3.3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-mata-kuliah-1"><i class="fa fa-check"></i><b>3.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="3.4" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#materi"><i class="fa fa-check"></i><b>3.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas"><i class="fa fa-check"></i><b>3.4.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.4.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan"><i class="fa fa-check"></i><b>3.4.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#kegiatan-praktikum-1"><i class="fa fa-check"></i><b>3.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas-1"><i class="fa fa-check"></i><b>3.5.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.5.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan-1"><i class="fa fa-check"></i><b>3.5.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#tugas-1"><i class="fa fa-check"></i><b>3.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html"><i class="fa fa-check"></i><b>4</b> Uji Beda &gt; 2 Kelompok</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#prinsip-2"><i class="fa fa-check"></i><b>4.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-lulusan-2"><i class="fa fa-check"></i><b>4.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="4.3" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-mata-kuliah-2"><i class="fa fa-check"></i><b>4.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="4.4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#materi-1"><i class="fa fa-check"></i><b>4.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-sampel-bebas"><i class="fa fa-check"></i><b>4.4.1</b> Uji Beda &gt; 2 Sampel Bebas</a></li>
+<li class="chapter" data-level="4.4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.4.2</b> Uji Beda &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresi.html"><a href="regresi.html"><i class="fa fa-check"></i><b>5</b> Regresi</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regresi.html"><a href="regresi.html#prinsip-3"><i class="fa fa-check"></i><b>5.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="5.2" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-lulusan-3"><i class="fa fa-check"></i><b>5.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="5.3" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-mata-kuliah-3"><i class="fa fa-check"></i><b>5.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="5.4" data-path="regresi.html"><a href="regresi.html#materi-2"><i class="fa fa-check"></i><b>5.4</b> MATERI</a></li>
+<li class="chapter" data-level="5.5" data-path="regresi.html"><a href="regresi.html#kegiatan-praktikum-3"><i class="fa fa-check"></i><b>5.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="5.6" data-path="regresi.html"><a href="regresi.html#tugas-3"><i class="fa fa-check"></i><b>5.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html"><i class="fa fa-check"></i><b>6</b> Lampiran Tugas dan Laporan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#prinsip-4"><i class="fa fa-check"></i><b>6.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="6.2" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-lulusan-4"><i class="fa fa-check"></i><b>6.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="6.3" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-mata-kuliah-4"><i class="fa fa-check"></i><b>6.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="6.4" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#materi-3"><i class="fa fa-check"></i><b>6.4</b> MATERI</a></li>
+<li class="chapter" data-level="6.5" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#kegiatan-praktikum-4"><i class="fa fa-check"></i><b>6.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="6.6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#tugas-4"><i class="fa fa-check"></i><b>6.6</b> TUGAS</a></li>
+<li class="chapter" data-level="6.7" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#math-example"><i class="fa fa-check"></i><b>6.7</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daftar-pustaka.html"><a href="daftar-pustaka.html"><i class="fa fa-check"></i>Daftar Pustaka</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modul Praktikum Aplikasi Komputer dengan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a4-uji-anova" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Acara 4</span> Uji Beda &gt; 2 Kelompok<a href="a4-uji-anova.html#a4-uji-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="prinsip-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> PRINSIP<a href="a4-uji-anova.html#prinsip-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uji Anova Satu Arah merupakan uji yang digunakan untuk membandingkan rerata lebih dari dua kelompok. Hasil uji ini akan menyimpulkan bahwa terdapat perbedaan rerata minimal pada salah satu kelompok apabila nilai signifikansi &lt; 0.05. Selanjutnya dilakukan uji lanjut, atau lebih dikenal dengan uji <em>post hoc</em>, untuk mendapatkan kelompok yang memiliki rerata berbeda. Uji Anova Satu Arah merupakan metode statistika parametrik, sehingga memiliki asumsi normalitas yang harus dipenuhi sebelum dapat menggunakannya. Tidak terpenuhinya asumsi normalitas akan menyarankan pengujian menggunakan metode statistika non-parametrik.</p>
+</div>
+<div id="capaian-pembelajaran-lulusan-2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> CAPAIAN PEMBELAJARAN LULUSAN<a href="a4-uji-anova.html#capaian-pembelajaran-lulusan-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="capaian-pembelajaran-mata-kuliah-2" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> CAPAIAN PEMBELAJARAN MATA KULIAH<a href="a4-uji-anova.html#capaian-pembelajaran-mata-kuliah-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="materi-1" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> MATERI<a href="a4-uji-anova.html#materi-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tak jarang bahwa sebuah penelitian perlu melakukan analisis tentang perbedaan hasil antara lebih dari dua kelompok. Begitu pula dalam penelitian kesehatan. Semisal pengujian perbedaan penurunan berat badan dari tiga metode diit yang berbeda; perbedaan dari hasil tiga metode terapi yang berbeda untuk pasien penderita stroke; perbedaan usia pertama menikah antara wanita yang memiliki jenjang pendidikan yang berbeda; dan masih banyak lagi.</p>
+<p>Penggunaan metode statistika ini memiliki dua keunggulan yang sudah cukup untuk menjadi alasan pada penggunaannya. Pertama, Uji Beda &gt; 2 Kelompok hanya memerlukan satu kali pengujian untuk menentukan apakah terdapat perbedaan antar kelompok. Berbeda dengan penggunaan Uji t yang harus melakukan pengujian untuk setiap dua kelompok yang berbeda. Semisal pada uji beda dengan tiga kelompok kelas A, B, dan C. Uji t memerlukan pengujian pada Kelompok A dan Kelompok B, Kelompok B dan Kelompok C, serta Kelompok A dan Kelompok C. Bagaimana jika perlu melakukan uji beda pada 10 kelompok kelas? Hal ini menyebabkan Uji t menjadi tidak efektif dan efisien untuk digunakan.</p>
+<p>Kedua, Setiap uji yang dilakukan memiliki nilai Kesalahan Tipe 1 yaitu <span class="math inline">\(\alpha = 5%\)</span>, sehingga semakin banyak uji yang dilakukan maka Kesalahan Tipe 1 ini juga meningkat. Oleh karenanya Tji t akan memiliki kesalahan yang relatif besar jika digunakan untuk pengujian &gt; dua kelompok.</p>
+<p>Terdapat empat buah metode statistika yang sangat sering digunakan untuk melakukan pengujian ini. Keempat metode ini bergantung pada sifat data dan berdasarkan jenis metode statistika yaitu parametrik dan non-parametrik. Berdasarkan sifat data, terdapat uji untuk data sampel bebas dan sampel berpasangan. Berikut ini adalah keempat metode tersebut:</p>
+<ol style="list-style-type: decimal">
+<li>Uji Beda &gt; 2 Sampel Bebas
+<ul>
+<li>Anova Satu Arah Sampel Bebas</li>
+<li>Kruskal Wallis</li>
+</ul></li>
+<li>Uji Beda &gt; 2 Sampel Berpasangan (Pengukuran Berulang)
+<ul>
+<li>Anova Satu Arah Pengukuran Berulang</li>
+<li>Friedman</li>
+</ul></li>
+</ol>
+<div id="uji-beda-2-sampel-bebas" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Uji Beda &gt; 2 Sampel Bebas<a href="a4-uji-anova.html#uji-beda-2-sampel-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>uji Beda &gt; 2 Sampel Bebas digunakan untuk melakukan pengujian pada penelitian yang menggunakan subjek yang berbeda setiap kelompoknya. Perbedaan subjek ini yang membuat hasil observasi setiap kelompok tidak saling terikat. Uji ini menggunakan Uji Anova Satu Arah atau yang lebih dikenal dengan Uji Anova sebagai metode statistika parametrik dan menggunakan uji Kruskal Wallis sebagai metode statistika non-parametriknya. Uji Kruskal Wallis digunakan apabila asumsi normalitas tidak terpenuhi pada data.</p>
+<div id="anova-satu-arah-sampel-bebas-anova" class="section level4 hasAnchor" number="4.4.1.1">
+<h4><span class="header-section-number">4.4.1.1</span> Anova Satu Arah Sampel Bebas (Anova)<a href="a4-uji-anova.html#anova-satu-arah-sampel-bebas-anova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji Anova digunakan untuk melakukan pengujian beda rataan antara lebih dari dua kelompok. Uji ini dapat digunakan hanya pada data berskala interval dan rasio saja.</p>
+<div id="hipotesis-uji" class="section level5 hasAnchor" number="4.4.1.1.1">
+<h5><span class="header-section-number">4.4.1.1.1</span> Hipotesis Uji<a href="a4-uji-anova.html#hipotesis-uji" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah terdapat minimal satu kelompok yang memmiliki perbedaan rataan dari kelompok lainnya. Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0 : \mu_1 = \mu_2 = \mu_3 = ... = \mu_n\)</span><br />
+</li>
+<li><span class="math inline">\(H_1 :\)</span> sedikitnya ada satu <span class="math inline">\(\mu_i\)</span> yang memiliki rataan berbeda dengan kelompok yang lain</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan rerata antar kelompok. Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu paling tidak terdapat satu kelompok memiliki rataan yang berbeda dengan rerata dari kelompok lainnya. Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan rerata antar kelompok.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah paling sedikit terdapat satu kelompok memiliki nilai rerata yang berbeda dengan kelompok lainnya.</p>
+</div>
+<div id="asumsi-uji-2" class="section level5 hasAnchor" number="4.4.1.1.2">
+<h5><span class="header-section-number">4.4.1.1.2</span> Asumsi Uji<a href="a4-uji-anova.html#asumsi-uji-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Terdapat tiga asumsi untuk melakukan Uji Anova, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li>Observasi data diambil secara acak dan bebas. Bebas yang dimaksud adalah hasil observasi satu dengan yang lain tidak saling berhubungan atau mempengaruhi.</li>
+<li>Setiap kelompok berasal dari populasi yang berdistribusi normal. Apabila asumsi ini tidak terpenuhi, maka Uji Anova tidak dapat dilakukan. Sebagai gantinya akan digunakan metode statistika non-parametrik yaitu Uji Kruskal Wallis.</li>
+<li>Tidak terdapat perbedaan ragam atar kelompok (Ragam Homogen). Apabila asumsi ini tidak terpenuhi, maka Uji Anova Satu Arah Sampel Bebas dapat dilakukan dengan dengan menggunakan metode Welch Anova dan menggunakan Uji Games-Howell untuk uji lanjut daripada menggunakan Uji Tukey.</li>
+</ol>
+</div>
+<div id="langkah-langkah-pengujian-4" class="section level5 hasAnchor" number="4.4.1.1.3">
+<h5><span class="header-section-number">4.4.1.1.3</span> Langkah-langkah Pengujian<a href="a4-uji-anova.html#langkah-langkah-pengujian-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Berbeda dengan Uji t, Uji Anova memiliki empat langkah dalam pengujiannya. Pertama adalah memastikan bahwa data telah memenuhi asumsi-asumsi pengujian, kemudian dilanjutkan dengan melakukan pengujian. Setelah itu, adalah menentukan apakah hasil nilai signifikansi gagal menolak <span class="math inline">\(H_0\)</span> atau menerima <span class="math inline">\(H_1\)</span>. Langkah terakhir adalah uji lanjut ( <em>post hoc</em> ) apabila keputusan pengujian adalah terima <span class="math inline">\(H_1\)</span>. Uji lanjut ini bertujuan untuk mengetahui sampel/kelompok mana saja yang memiliki perbedaan rataan.</p>
+<ol style="list-style-type: decimal">
+<li><p>Asumsi-asumsi</p>
+<ul>
+<li><p><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Setiap kelompok berasal dari populasi yang berdistribusi normal</strong>.<br />
+Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<span class="math inline">\(&lt; 50\)</span>) dan uji Kolomgorov-Smirnov untuk sampel besar (<span class="math inline">\(&gt;= 50\)</span>). Fungsi yang digunakan untuk pengujian normalitas dengan Uji Shapiro-Wilk adalah <code>shapiro.test(sampel)</code> dan dengan Uji Kolmogorov-Smornov adalah <code>ks.test(sampel)</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Sampel/Kelompok berasal dari populasi yang berdistribusi normal</li>
+<li><span class="math inline">\(H_1 :\)</span> Sampel/Kelompok tidak berasal dari populasi yang berdistribusi normal</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<li><p><strong>Tidak terdapat perbedaan ragam atar kelompok (Ragam Homogen)</strong>.<br />
+Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
+<li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+</ul></li>
+<li><p>Pengujian<br />
+Pengujian ini bergantung pada hasil dari Uji Levene’s. Berikut adalah fungsi pengujiannya:</p>
+<ul>
+<li><code>oneway.test(formula, var.equal=TRUE)</code>, jika hasil Uji Levene’s gagal menolak <span class="math inline">\(H_0\)</span>.</li>
+<li><code>oneway.test(formula, var.equal=FALSE)</code>, jika hasil Uji Levene’s menerima <span class="math inline">\(H_1\)</span>.</li>
+</ul></li>
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Anova akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#">Hipotesis Uji</a>.</p></li>
+<li><p>Uji Lanjut
+Uji Tukey dapat dilakukan dengan menggunakan fungsi <code>tukey_hsd(formula)</code>, sedangkan Uji Games Howell dapat dilakukan dengan menggunakan fungsi <code>games_howell_test(formula)</code>. Kedua fungsi tersebut berada pada paket <code>rstatix</code>.</p></li>
+</ol>
+</div>
+</div>
+<div id="kruskal-wallis" class="section level4 hasAnchor" number="4.4.1.2">
+<h4><span class="header-section-number">4.4.1.2</span> Kruskal-Wallis<a href="a4-uji-anova.html#kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji Kruskal Wallis merupakan metode statistika non-parametrik sebagai alternatif dari Uji Anova apabila asumsi normalitas tidak terpenuhi. Uji ini dapat digunakan hanya pada minimal data berskala ordinal.</p>
+<div id="hipotesis-uji-1" class="section level5 hasAnchor" number="4.4.1.2.1">
+<h5><span class="header-section-number">4.4.1.2.1</span> Hipotesis Uji {#}<a href="a4-uji-anova.html#hipotesis-uji-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah terdapat minimal satu kelompok yang memmiliki perbedaan rataan dari kelompok lainnya. Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Tidak ada perbedaan antar kelompok</li>
+<li><span class="math inline">\(H_1 :\)</span> Sedikitnya ada satu kelompok yang berbeda dengan kelompok yang lain</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan antar kelompok. Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu paling tidak terdapat satu kelompok yang berbeda dengan kelompok lainnya. Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antar kelompok.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah paling sedikit terdapat satu kelompok yang berbeda dengan kelompok lainnya.</p>
+</div>
+<div id="asumsi-uji-3" class="section level5 hasAnchor" number="4.4.1.2.2">
+<h5><span class="header-section-number">4.4.1.2.2</span> Asumsi Uji<a href="a4-uji-anova.html#asumsi-uji-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Terdapat dua asumsi untuk melakukan Uji Anova, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li>Observasi data diambil secara acak dan bebas. Bebas yang dimaksud adalah hasil observasi satu dengan yang lain tidak saling berhubungan atau mempengaruhi.</li>
+<li>Minimal data yang digunakan adalah berskala ordinal.</li>
+</ol>
+</div>
+<div id="langkah-langkah-pengujian-5" class="section level5 hasAnchor" number="4.4.1.2.3">
+<h5><span class="header-section-number">4.4.1.2.3</span> Langkah-langkah Pengujian<a href="a4-uji-anova.html#langkah-langkah-pengujian-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Uji Kruskal memiliki empat langkah dalam pengujiannya. Pertama adalah memastikan bahwa data telah memenuhi asumsi-asumsi pengujian, kemudian dilanjutkan dengan melakukan pengujian. Setelah itu, adalah menentukan apakah hasil nilai signifikansi gagal menolak <span class="math inline">\(H_0\)</span> atau menerima <span class="math inline">\(H_1\)</span>. Langkah terakhir adalah uji lanjut ( <em>post hoc</em> ) apabila keputusan pengujian adalah terima <span class="math inline">\(H_1\)</span>. Uji lanjut ini bertujuan untuk mengetahui sampel/kelompok mana saja yang memiliki perbedaan.</p>
+<ol style="list-style-type: decimal">
+<li><p>Asumsi-asumsi</p>
+<ul>
+<li><p><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Minimal data berskala ordinal</strong>.<br />
+Dapat dilihat dari jenis datanya.</p></li>
+</ul></li>
+<li><p>Pengujian<br />
+Pengujian Kruskal Wallis dapat dilakukan dengan menggunakan fungsi <code>kruskal_test(formula)</code> yang tersedia pada paket <code>agricolae</code>.</p></li>
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Kruskal Wallis akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#">Hipotesis Uji</a>.</p></li>
+<li><p>Uji Lanjut
+Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="a4-uji-anova.html#cb61-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(formula, </span>
+<span id="cb61-2"><a href="a4-uji-anova.html#cb61-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">FALSE</span>, </span>
+<span id="cb61-3"><a href="a4-uji-anova.html#cb61-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="uji-beda-2-kelompok-berpasangan" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Uji Beda &gt; 2 Kelompok Berpasangan<a href="a4-uji-anova.html#uji-beda-2-kelompok-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uji Beda &gt; 2 Kelompok Berpasangan merupakan uji yang ditujukan kepada sebuah percobaan/penelitian yang dilakukan pengukuran secara berulang lebih dari dua kali. Mirip seperti Uji t Sampel Berpasangan, yang membedakan adalah jumlah pengukuran yang dilakukan pada masing-masing subjek. Uji Beda &gt; 2 Kelompok Berpasangan dapat dilakukan dengan menggunakan Uji Anova Pengukuran Berulang dan Uji Friedman sebagai uji alternatif bila asumsi pada Uji Anova Pengukuran Berulang tidak terpenuhi.</p>
+<div id="anova-pengukuran-berulang" class="section level4 hasAnchor" number="4.4.2.1">
+<h4><span class="header-section-number">4.4.2.1</span> Anova Pengukuran Berulang<a href="a4-uji-anova.html#anova-pengukuran-berulang" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji Anova Pengukuran Berulang digunakan untuk mengetahui apakah ada perbedaan rataan dari hasil pengukuran subjek yang dilakukan secara berulang. Uji ini termasuk dalam metode statistika parametrik.</p>
+<div id="hipotesis-uji-2" class="section level5 hasAnchor" number="4.4.2.1.1">
+<h5><span class="header-section-number">4.4.2.1.1</span> Hipotesis Uji<a href="a4-uji-anova.html#hipotesis-uji-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah terdapat minimal satu pengukuran yang memmiliki perbedaan rataan dari pada pengukuran lainnya. Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0 : \mu_{penukuran_1} = \mu_{penukuran_2} = \mu_{penukuran_3} = ... = \mu_{penukuran_n}\)</span><br />
+</li>
+<li><span class="math inline">\(H_1 :\)</span> Sedikitnya ada satu <span class="math inline">\(\mu_{penukuran_i}\)</span> yang memiliki rataan berbeda dengan pengukuran yang lain.</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan rerata antar pengukuran. Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu paling tidak terdapat satu pengukuran memiliki rataan yang berbeda dengan rerata dari pengukuran lainnya. Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan rerata antar pengukuran.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah paling sedikit terdapat satu pengukuran yang memiliki nilai rerata yang berbeda dengan pengukuran lainnya.</p>
+</div>
+<div id="asumsi-uji-4" class="section level5 hasAnchor" number="4.4.2.1.2">
+<h5><span class="header-section-number">4.4.2.1.2</span> Asumsi Uji<a href="a4-uji-anova.html#asumsi-uji-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Terdapat tiga asumsi untuk melakukan Uji Anova, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li>Observasi data diambil secara acak dan bebas. Bebas yang dimaksud adalah hasil observasi satu dengan yang lain tidak saling berhubungan atau mempengaruhi.</li>
+<li>Setiap kelompok pengukuran berasal dari populasi yang berdistribusi normal. Apabila asumsi ini tidak terpenuhi, maka Uji Anova Pengukuran Berulang tidak dapat dilakukan. Sebagai gantinya akan digunakan metode statistika non-parametrik yaitu Uji Friedman.</li>
+<li>Tidak terdapat perbedaan ragam dari selisih antara nilai pengukuran (Asumsi Kebulatan atau lebih dikenal dengan <em>Assumption of Sphericity</em>). Uji ini menggunakan Uji <em>Mauchly’s Test of Sphericity</em>. Apabila asumsi ini tidak terpenuhi, maka hasil Uji Anova Pengukuran Berulang menggunakan perlu dikoreksin denggan menggunakan metode <code>Greenhouse-Geisser</code>. Apabila asumsi ini terpenuhi, maka hasil Uji Anova Pengukuran Berulang menggunakan hasil dengan menggunakan metode <code>Hyunh-Feldt</code>.</li>
+</ol>
+</div>
+<div id="langkah-langkah-pengujian-6" class="section level5 hasAnchor" number="4.4.2.1.3">
+<h5><span class="header-section-number">4.4.2.1.3</span> Langkah-langkah Pengujian<a href="a4-uji-anova.html#langkah-langkah-pengujian-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Uji Anova Pengukuran Berulang memiliki empat langkah dalam pengujiannya. Pertama adalah memastikan bahwa data telah memenuhi asumsi-asumsi pengujian, kemudian dilanjutkan dengan melakukan pengujian. Setelah itu, adalah menentukan apakah hasil nilai signifikansi gagal menolak <span class="math inline">\(H_0\)</span> atau menerima <span class="math inline">\(H_1\)</span>. Langkah terakhir adalah uji lanjut ( <em>post hoc</em> ) apabila keputusan pengujian adalah terima <span class="math inline">\(H_1\)</span>. Uji lanjut ini bertujuan untuk mengetahui sampel/kelompok mana saja yang memiliki perbedaan rataan.</p>
+<ol style="list-style-type: decimal">
+<li>Asumsi-asumsi
+<ul>
+<li><p><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Setiap kelompok berasal dari populasi yang berdistribusi normal</strong>.<br />
+Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<span class="math inline">\(&lt; 50\)</span>) dan uji Kolomgorov-Smirnov untuk sampel besar (<span class="math inline">\(&gt;= 50\)</span>). Fungsi yang digunakan untuk pengujian normalitas dengan Uji Shapiro-Wilk adalah <code>shapiro.test(sampel)</code> dan dengan Uji Kolmogorov-Smornov adalah <code>ks.test(sampel)</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Sampel/Kelompok berasal dari populasi yang berdistribusi normal</li>
+<li><span class="math inline">\(H_1 :\)</span> Sampel/Kelompok tidak berasal dari populasi yang berdistribusi normal</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<li><p><strong>Tidak terdapat perbedaan ragam dari selisih antara nilai pengukuran (Asumsi Kebulatan atau lebih dikenal dengan <em>Assumption of Sphericity</em>)</strong>.<br />
+Pengujian ini langsung dilakukan dengan menggunakan fungsi <code>anova_test()</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Ragam dari selisih antara kelompok sama</li>
+<li><span class="math inline">\(H_1 :\)</span> Ragam dari selisih antara kelompok berbeda</li>
+</ul>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+</ul></li>
+<li>Pengujian<br />
+Pengujian ini bergantung pada hasil dari Uji <em>Mauchly’s Test of Sphericity</em>. Berikut adalah fungsi pengujiannya:</li>
+</ol>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="a4-uji-anova.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Anova Pengukuran Berulang</span></span>
+<span id="cb62-2"><a href="a4-uji-anova.html#cb62-2" aria-hidden="true" tabindex="-1"></a>anova_pb <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data =</span> selfesteem, <span class="at">dv =</span> score, <span class="at">wid =</span> id, <span class="at">within =</span> time)</span>
+<span id="cb62-3"><a href="a4-uji-anova.html#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="a4-uji-anova.html#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Hasil Uji Mauchly’s Test of Sphericity</span></span>
+<span id="cb62-5"><a href="a4-uji-anova.html#cb62-5" aria-hidden="true" tabindex="-1"></a>anova_pb<span class="sc">$</span><span class="st">`</span><span class="at">Mauchly&#39;s Test for Sphericity</span><span class="st">`</span></span>
+<span id="cb62-6"><a href="a4-uji-anova.html#cb62-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="a4-uji-anova.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Gunakan Hasil dari Uji Greenhouse-Geisser apabila asumsi tidak terpenuhi</span></span>
+<span id="cb62-8"><a href="a4-uji-anova.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="fu">get_anova_table</span>(anova_pb, <span class="at">correction =</span> <span class="st">&quot;GG&quot;</span>)</span>
+<span id="cb62-9"><a href="a4-uji-anova.html#cb62-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="a4-uji-anova.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Gunakan Hasil dari Uji Hyunh-Feldt apabila asumsi tidak terpenuhi</span></span>
+<span id="cb62-11"><a href="a4-uji-anova.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="fu">get_anova_table</span>(anova_pb, <span class="at">correction =</span> <span class="st">&quot;HF&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Anova Pengukuran akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#">Hipotesis Uji</a>.</p></li>
+<li><p>Uji Lanjut
+Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="a4-uji-anova.html#cb63-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(formula, </span>
+<span id="cb63-2"><a href="a4-uji-anova.html#cb63-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb63-3"><a href="a4-uji-anova.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="friedmanns" class="section level4 hasAnchor" number="4.4.2.2">
+<h4><span class="header-section-number">4.4.2.2</span> Friedmann’s<a href="a4-uji-anova.html#friedmanns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+</div>
+<div id="kegiatan-praktikum-2" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> KEGIATAN PRAKTIKUM<a href="a4-uji-anova.html#kegiatan-praktikum-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="uji-beda-rerata-2-kelompok-bebas" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Uji Beda Rerata &gt; 2 Kelompok Bebas<a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="uji-beda-rerata-2-kelompok-berpasangan" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Uji Beda Rerata &gt; 2 Kelompok Berpasangan<a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="tugas-2" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> TUGAS<a href="a4-uji-anova.html#tugas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a3-uji-2-sampel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Uji-3-Sampel.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Aplikasi Komputer - Biostatistika.pdf", "Aplikasi Komputer - Biostatistika.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"bibliography": "Daftar Pustaka",
+"split_by": "chapter",
+"split_bib": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

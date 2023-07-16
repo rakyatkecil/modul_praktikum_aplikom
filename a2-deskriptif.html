@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Acara 2 Statistik Deskriptif | Modul Praktikum Aplikasi Komputer dengan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Acara 2 Statistik Deskriptif | Modul Praktikum Aplikasi Komputer dengan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Acara 2 Statistik Deskriptif | Modul Praktikum Aplikasi Komputer dengan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Dimas Wicaksono" />
+
+
+<meta name="date" content="2023-07-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a1-pengenalan.html"/>
+<link rel="next" href="a3-uji-2-sampel.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pendahuluan</a></li>
+<li class="chapter" data-level="1" data-path="a1-pengenalan.html"><a href="a1-pengenalan.html"><i class="fa fa-check"></i><b>1</b> Pengenalan Statistik dengan R</a></li>
+<li class="chapter" data-level="2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html"><i class="fa fa-check"></i><b>2</b> Statistik Deskriptif</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#prinsip"><i class="fa fa-check"></i><b>2.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="2.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-lulusan"><i class="fa fa-check"></i><b>2.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="2.3" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#capaian-pembelajaran-mata-kuliah"><i class="fa fa-check"></i><b>2.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="2.4" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#a2-materi"><i class="fa fa-check"></i><b>2.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>2.4.1</b> Ukuran Pemusatan Data</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#ukuran-penyebaran-data"><i class="fa fa-check"></i><b>2.4.2</b> Ukuran Penyebaran Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#kegiatan-praktikum"><i class="fa fa-check"></i><b>2.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="2.6" data-path="a2-deskriptif.html"><a href="a2-deskriptif.html#tugas"><i class="fa fa-check"></i><b>2.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html"><i class="fa fa-check"></i><b>3</b> Uji 2 Sampel</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#prinsip-1"><i class="fa fa-check"></i><b>3.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="3.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-lulusan-1"><i class="fa fa-check"></i><b>3.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="3.3" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#capaian-pembelajaran-mata-kuliah-1"><i class="fa fa-check"></i><b>3.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="3.4" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#materi"><i class="fa fa-check"></i><b>3.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas"><i class="fa fa-check"></i><b>3.4.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.4.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan"><i class="fa fa-check"></i><b>3.4.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#kegiatan-praktikum-1"><i class="fa fa-check"></i><b>3.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-bebas-1"><i class="fa fa-check"></i><b>3.5.1</b> Sampel Bebas</a></li>
+<li class="chapter" data-level="3.5.2" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#sampel-berpasangan-1"><i class="fa fa-check"></i><b>3.5.2</b> Sampel Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="a3-uji-2-sampel.html"><a href="a3-uji-2-sampel.html#tugas-1"><i class="fa fa-check"></i><b>3.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html"><i class="fa fa-check"></i><b>4</b> Uji Beda &gt; 2 Kelompok</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#prinsip-2"><i class="fa fa-check"></i><b>4.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-lulusan-2"><i class="fa fa-check"></i><b>4.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="4.3" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#capaian-pembelajaran-mata-kuliah-2"><i class="fa fa-check"></i><b>4.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="4.4" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#materi-1"><i class="fa fa-check"></i><b>4.4</b> MATERI</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-sampel-bebas"><i class="fa fa-check"></i><b>4.4.1</b> Uji Beda &gt; 2 Sampel Bebas</a></li>
+<li class="chapter" data-level="4.4.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.4.2</b> Uji Beda &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresi.html"><a href="regresi.html"><i class="fa fa-check"></i><b>5</b> Regresi</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regresi.html"><a href="regresi.html#prinsip-3"><i class="fa fa-check"></i><b>5.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="5.2" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-lulusan-3"><i class="fa fa-check"></i><b>5.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="5.3" data-path="regresi.html"><a href="regresi.html#capaian-pembelajaran-mata-kuliah-3"><i class="fa fa-check"></i><b>5.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="5.4" data-path="regresi.html"><a href="regresi.html#materi-2"><i class="fa fa-check"></i><b>5.4</b> MATERI</a></li>
+<li class="chapter" data-level="5.5" data-path="regresi.html"><a href="regresi.html#kegiatan-praktikum-3"><i class="fa fa-check"></i><b>5.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="5.6" data-path="regresi.html"><a href="regresi.html#tugas-3"><i class="fa fa-check"></i><b>5.6</b> TUGAS</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html"><i class="fa fa-check"></i><b>6</b> Lampiran Tugas dan Laporan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#prinsip-4"><i class="fa fa-check"></i><b>6.1</b> PRINSIP</a></li>
+<li class="chapter" data-level="6.2" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-lulusan-4"><i class="fa fa-check"></i><b>6.2</b> CAPAIAN PEMBELAJARAN LULUSAN</a></li>
+<li class="chapter" data-level="6.3" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#capaian-pembelajaran-mata-kuliah-4"><i class="fa fa-check"></i><b>6.3</b> CAPAIAN PEMBELAJARAN MATA KULIAH</a></li>
+<li class="chapter" data-level="6.4" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#materi-3"><i class="fa fa-check"></i><b>6.4</b> MATERI</a></li>
+<li class="chapter" data-level="6.5" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#kegiatan-praktikum-4"><i class="fa fa-check"></i><b>6.5</b> KEGIATAN PRAKTIKUM</a></li>
+<li class="chapter" data-level="6.6" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#tugas-4"><i class="fa fa-check"></i><b>6.6</b> TUGAS</a></li>
+<li class="chapter" data-level="6.7" data-path="lampiran-tugas-dan-laporan.html"><a href="lampiran-tugas-dan-laporan.html#math-example"><i class="fa fa-check"></i><b>6.7</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daftar-pustaka.html"><a href="daftar-pustaka.html"><i class="fa fa-check"></i>Daftar Pustaka</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modul Praktikum Aplikasi Komputer dengan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a2-deskriptif" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Acara 2</span> Statistik Deskriptif<a href="a2-deskriptif.html#a2-deskriptif" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="prinsip" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> PRINSIP<a href="a2-deskriptif.html#prinsip" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Statistik Deskriptif adalah sebuah metode statistika yang bertujuan untuk mendapatkan ringkasan dari data. Ringkasan ini akan memberikan gambaran tentang distribusi dari data. Statistik deskriptif sangat penting dilakukan sebelum melakukan pengolahan data, bahkan digunakan untuk penentuan awal dalam melakukan manajemen data. Ukuran-ukuran dalam statistik deskriptif mencakup ukuran pemusatan dan penyebaran dari data. Ukuran pemusatan terdiri dari nilai rerata, median dan modus. Sedangkan ukuran penyebaran terdiri dari nilai ragam, standar deviasi, nilai minimum dan maksimum, serta nilai keruncingan (kurtosis) dan kemiringan (skewness). Perlu diketahui, bahwa ukuran pemusatan dan penyebaran ini hanya dapat dilakukan pada skala data interval dan rasio.</p>
+</div>
+<div id="capaian-pembelajaran-lulusan" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> CAPAIAN PEMBELAJARAN LULUSAN<a href="a2-deskriptif.html#capaian-pembelajaran-lulusan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="capaian-pembelajaran-mata-kuliah" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> CAPAIAN PEMBELAJARAN MATA KULIAH<a href="a2-deskriptif.html#capaian-pembelajaran-mata-kuliah" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="a2-materi" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> MATERI<a href="a2-deskriptif.html#a2-materi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ukuran-pemusatan-data" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Ukuran Pemusatan Data<a href="a2-deskriptif.html#ukuran-pemusatan-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dalam pengolahan data, sangat penting bagi peneliti untuk mengetahui bagaimana ringkasan dari data. Adanya informasi tersebut akan menjadi dasar dalam pemilihan metode pengolahan data. Ukuran Pemusatan Data merupakan statistik dapat memberikan ringkasan pada data yang menunjukkan nilai tengah atau keterpusatan data.</p>
+<div id="rerata-mean" class="section level4 hasAnchor" number="2.4.1.1">
+<h4><span class="header-section-number">2.4.1.1</span> Rerata (Mean)<a href="a2-deskriptif.html#rerata-mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Rerata merupakan nilai yang sering digunakan untuk mewakili data. Hal ini dikarenakan rerata cenderung memusat, berada pada tengah-tengah data. Perhatikan contoh pada Gambar berikut:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:a2-fig1"></span>
+<img src="Aplikasi-Komputer---Biostatistika_files/figure-html/a2-fig1-1.png" alt="Contoh Data dan Nilai Reratanya" width="672" />
+<p class="caption">
+Gambar 2.1: Contoh Data dan Nilai Reratanya
+</p>
+</div>
+<p>Perhatikan bahwa pada <a href="a2-deskriptif.html#fig:a2-fig1">Gambar 2.1</a> terdapat sebuah data yang diwakili dengan titik hitam dan nilai reratanya yang diwakili oleh warna merah. Titik merah yang merupakan nilai rerata berada pada tengah-tengah data, meskipun tidak harus persis berada ditengah.</p>
+<p>Fungsi yang digunakan untuk mendapatkan nilai rerata pada Program R adalah <code>mean(data)</code>. Ubah “data” dengan objek data yang digunakan. Semisal saya memiliki objek data dengan nama <code>mydata</code>, maka penggunaan fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="a2-deskriptif.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydata)</span></code></pre></div>
+</div>
+<div id="median" class="section level4 hasAnchor" number="2.4.1.2">
+<h4><span class="header-section-number">2.4.1.2</span> Median<a href="a2-deskriptif.html#median" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Berbeda dengan rerata yang posisinya tidak tepat pada tengah-tengah data, median adalah nilai yang tepat berada di tengah-tengah data. Nilai median dapat digunakan sebagai nilai yang mewakili data jika nilai rerata dianggap kurang merepresentasikan pusat data. Ini biasanya terjadi pada data dengan distribusi data yang tidak seimbang. Selain itu, nilai median juga lebih diterima pada data-data hasil perhitungan, dimana data ini tidak memiliki nilai desimal.</p>
+<p>Untuk mendapatkan nilai median pada data, gunakan fungsi <code>median(data)</code>. Ubah “data” dengan objek data yang digunakan.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="a2-deskriptif.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(mydata)</span></code></pre></div>
+</div>
+<div id="a2-modus" class="section level4 hasAnchor" number="2.4.1.3">
+<h4><span class="header-section-number">2.4.1.3</span> Modus<a href="a2-deskriptif.html#a2-modus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Nilai Modus merupakan nilai data yang paling sering muncul. Nilai modus sering digunakan untuk membandingkan nilai tersebut dengan median ataupun reratanya. Nilai modus yang lebih besar dari nilai median dan rerata menunjukkan bahwa distribusi data miring ke kiri sedangkan nilai modus yang kurang dari nilai median dan rerata menunjukkan bahwa distribusi data miring ke kanan. Perhatikan gambar berikut:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:a2-fig2"></span>
+<img src="Aplikasi-Komputer---Biostatistika_files/figure-html/a2-fig2-1.png" alt="Distribusi Data berdasarkan Nilai Rerata, Median dan Modusnya" width="672" />
+<p class="caption">
+Gambar 2.2: Distribusi Data berdasarkan Nilai Rerata, Median dan Modusnya
+</p>
+</div>
+<p>Penjelasan <a href="fig:a2-fig2">Gambar 2.2</a>.</p>
+<p>Mendapatkan modus pada data di Program R tidak seperti mendapatkan rerata dan median. Fungsi modus perlu dibuat secara manual. Berikut adalah contoh fungsi modus:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="a2-deskriptif.html#cb4-1" aria-hidden="true" tabindex="-1"></a>modus <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb4-2"><a href="a2-deskriptif.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  nilai_unik <span class="ot">=</span> <span class="fu">unique</span>(x)</span>
+<span id="cb4-3"><a href="a2-deskriptif.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  tabel_nilai_unik <span class="ot">=</span> <span class="fu">tabulate</span>(<span class="fu">match</span>(x, nilai_unik))</span>
+<span id="cb4-4"><a href="a2-deskriptif.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  modus_nilai_unik <span class="ot">=</span> nilai_unik[<span class="fu">which.max</span>(tabel_nilai_unik)]</span>
+<span id="cb4-5"><a href="a2-deskriptif.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(modus_nilai_unik)</span>
+<span id="cb4-6"><a href="a2-deskriptif.html#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Selanjutnya kita dapat menggunakan fungsi tersebut untuk mendapatkan modus dengan cara:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="a2-deskriptif.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modus</span>(mydata)</span></code></pre></div>
+</div>
+</div>
+<div id="ukuran-penyebaran-data" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Ukuran Penyebaran Data<a href="a2-deskriptif.html#ukuran-penyebaran-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Telah dipelajari sebelumnya bahwa ukuran pemusatan dapat memberikan nilai-nilai yang direpresentasikan sebagai pusat dari data. Meski demikian, ada banyak data riil yang memiliki keragaman nilai yang sangat tinggi. Akibatnya, nilai ukuran pemusatan tidak dapat memberikan informasi yang cukup. Ukuran penyebaran memberikan ringkasan dari penyebaran data. Perhatikan data berikut:</p>
+<table>
+<caption><span id="tab:a2-tab1">Tabel 2.1: </span>Data Kadar HB Wanita Hamil</caption>
+<thead>
+<tr class="header">
+<th align="center">ID</th>
+<th align="center">Penambah_Darah</th>
+<th align="center">HB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Ya</td>
+<td align="center">11.00</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Ya</td>
+<td align="center">12.25</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Ya</td>
+<td align="center">11.06</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Ya</td>
+<td align="center">11.43</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Ya</td>
+<td align="center">11.64</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Tidak</td>
+<td align="center">6.39</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">Tidak</td>
+<td align="center">11.66</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">Tidak</td>
+<td align="center">7.82</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">Tidak</td>
+<td align="center">7.67</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Tidak</td>
+<td align="center">7.56</td>
+</tr>
+</tbody>
+</table>
+<p>Perhatikan <a href="a2-deskriptif.html#tab:a2-tab1">Tabel 2.1</a>, ID menunjukkan ID dari responden, kolom Penambah.Darah merupakan status kepatuhan responden dalam konsumsi tablet tambah darah, dan kolom KB adalah kadar KB responden. Pada tabel itu menunjukkan bahwa rerata kadar HB pada responden yang mengonsumsi tabel tambah darah adalah sebesar <code>11.5</code>, sedangkan rerata yang tidak adalah <code>8.22</code>. Pada data ini, kita dapat menduga bahwa responden yang tidak patuh dalam mengonsumsi penambah darah seolah-olah tidak memerlukan tindakan yang serius. Padahal salah satu responden telah memiliki kadar HB &lt; 7.</p>
+<p>Ringkasan data pada <a href="a2-deskriptif.html#tab:a2-tab1">Tabel 2.1</a> masih dapat kita lakukan karena datanya yang sedikit, Sehingga kita mampu melihat data secara keseluruhan. Namun bagaimana jika data yang tersedia lebih dari itu, 30, 100, 10.000? Oleh karenanya nilai ukuran penyebaran data juga sangat penting diperiksa sebelum melanjutkan pengolahan data ke tahap analisis.</p>
+<div id="minimum-dan-maksimum" class="section level4 hasAnchor" number="2.4.2.1">
+<h4><span class="header-section-number">2.4.2.1</span> Minimum dan Maksimum<a href="a2-deskriptif.html#minimum-dan-maksimum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Nilai minimum dan maksimum dapat menunjukkan seberapa lebar interval data. Semakin lebar interval data maka semakin besar keragaman dari data. Fungsi berikut digunakan untuk mendapatkan nilai maksimum dan minimum pada data:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="a2-deskriptif.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mydata) <span class="co"># fungsi untuk mendapatkan nilai minimum</span></span>
+<span id="cb6-2"><a href="a2-deskriptif.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(mydata) <span class="co"># fungsi untuk mendapatkan nilai maksimum</span></span></code></pre></div>
+</div>
+<div id="ragam-dan-deviasi-standar" class="section level4 hasAnchor" number="2.4.2.2">
+<h4><span class="header-section-number">2.4.2.2</span> Ragam dan Deviasi Standar<a href="a2-deskriptif.html#ragam-dan-deviasi-standar" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Nilai Ragam dan Deviasi Standar merupakan nilai yang saling berhubungan satu sama lain. Dimana nilai Deviasi adalah akar kuadrat dari nilai ragam. Ragam dan standar deviasi ini menunjukkan seberapa jauh penyimpangan nilai-nilai pada data dengan nilai reratanya.</p>
+<p><span class="math display">\[
+\sigma = \sqrt{\sigma^2}
+\]</span>
+Fungsi yang digunakan untuk mendapatkan nilai ragam pada Program R adalah <code>var(data)</code>, sedangkan fungsi untuk mendapatkan deviasi standar adala <code>sd(mydata)</code>. Ubah “data” dengan objek data yang digunakan.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="a2-deskriptif.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(mydata) <span class="co"># nilai ragam</span></span>
+<span id="cb7-2"><a href="a2-deskriptif.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(mydata)  <span class="co"># nilai deviasi standar</span></span></code></pre></div>
+</div>
+<div id="skewness-dan-kurtosis" class="section level4 hasAnchor" number="2.4.2.3">
+<h4><span class="header-section-number">2.4.2.3</span> Skewness dan Kurtosis<a href="a2-deskriptif.html#skewness-dan-kurtosis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Nilai Skewness pada data dapat diartikan kemiringan pada data. Dimana dalam arti lain, nilai skewness dapat digunakan untuk menunjukkan apakah data cukup simetris atau tidak, seperti Gambar (c) pada <a href="a2-deskriptif.html#fig:a2-fig2">Gambar 2.2</a>. Nilai kurtosis negatif menunjukkan bahwa distribusi data miring ke kiri, sedangkan nilai kurtosis positif menunjukkan bahwa distribusi data miring ke kanan.</p>
+<p>Berbeda dengan nilai skewness, nilai kurtosis menunjukkan keruncingan data. Nilai kurtosis yang sama dengan 3 menunjukkan keruncingan kurva normal. Nilai kurtosis yang lebih dari 3 menunjukkan kurva meruncing, sedangkan nilai kurtosis yang kurang dari 3 menunjukkan bahwa kurva mendatar.</p>
+<p>Fungsi untuk mendapatkan nilai skewness dan kurtosis ada pada paket <code>moments</code>. Oleh karena itu, perlu melakukan instalasi paket tersebut dengan menggunakan fungsi <code>install.packages(packages_name)</code> sebagai berikut:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="a2-deskriptif.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</span></code></pre></div>
+<p>Setelah paket berhasil terinstall, aktifkan paket lalu gunakan fungsi <code>skewness(mydata)</code> untuk mendapatkan nilai skewness, dan fungsi <code>kurtosis(mydata)</code> untuk mendapatkan nilai kurtosis.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="a2-deskriptif.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb9-2"><a href="a2-deskriptif.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(mydata) <span class="co"># nilai skewness</span></span>
+<span id="cb9-3"><a href="a2-deskriptif.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kurotsis</span>(mydata) <span class="co"># nilai kurtosis</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="kegiatan-praktikum" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> KEGIATAN PRAKTIKUM<a href="a2-deskriptif.html#kegiatan-praktikum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Gunakan data <code>iris</code> sebagai bahan praktikum statistik deskriptif. Jalankan perintah <code>data("iris")</code> untuk menaktifkannya. Setelah itu lihat 6 baris pertama pada data menggunakan fungsi <code>head()</code>.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a2-deskriptif.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb10-2"><a href="a2-deskriptif.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Gunakan fungsi-fungsi yang telah dipelajari sebelumnya pada <a href="a2-deskriptif.html#a2-materi">Materi Acara 2</a>, yaitu fungsi <code>mean()</code>, <code>median()</code>, <code>modus()</code>, <code>var()</code>, <code>sd()</code>, <code>skewnes()</code>, dan <code>kurtosis()</code>. Perlu diperhatikan bahwa:
+<ul>
+<li>fungsi <code>modus()</code> perlu didefinisikan terlebih dahulu seperti yang telah dijekaskan pada <a href="a2-deskriptif.html#a2-modus">Subsub Materi Modus</a></li>
+<li>fungsi <code>skewnes()</code> dan <code>kurtosis()</code> dapat digunakan setelah mengaktifkan paket <code>moments</code>. Installasi paket dalam Program R cukup satu kali dilakukan, namun dapat dilakukan berulang kali jika installasi gagal. Sedangkan pengaktifan paket harus dilakukan setiap sesi baru berjalan.</li>
+</ul></li>
+<li>Berikut adalah contoh untuk mengerjakan poin 2 diatas:</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="a2-deskriptif.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moments)  <span class="co"># mengaktifkan paket moments</span></span>
+<span id="cb12-2"><a href="a2-deskriptif.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="a2-deskriptif.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co"># mengaktifkan data iris</span></span>
+<span id="cb12-4"><a href="a2-deskriptif.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)   <span class="co"># memunculkan 6 data pertama</span></span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="a2-deskriptif.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># memilih variabel Sepal.Length sebagai data latihan. </span></span>
+<span id="cb14-2"><a href="a2-deskriptif.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Hal ini dikarenakan data Sepal.Length merupakan </span></span>
+<span id="cb14-3"><a href="a2-deskriptif.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># salah satu data berskala rasio pada data iris.</span></span>
+<span id="cb14-4"><a href="a2-deskriptif.html#cb14-4" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> iris<span class="sc">$</span>Sepal.Length </span>
+<span id="cb14-5"><a href="a2-deskriptif.html#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="a2-deskriptif.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ukuran Pemusatan</span></span>
+<span id="cb14-7"><a href="a2-deskriptif.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">## pembuatan fungsi untuk menghitung modus</span></span>
+<span id="cb14-8"><a href="a2-deskriptif.html#cb14-8" aria-hidden="true" tabindex="-1"></a>modus <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb14-9"><a href="a2-deskriptif.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  nilai_unik <span class="ot">=</span> <span class="fu">unique</span>(x)</span>
+<span id="cb14-10"><a href="a2-deskriptif.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  tabel_nilai_unik <span class="ot">=</span> <span class="fu">tabulate</span>(<span class="fu">match</span>(x, nilai_unik))</span>
+<span id="cb14-11"><a href="a2-deskriptif.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  modus_nilai_unik <span class="ot">=</span> nilai_unik[<span class="fu">which.max</span>(tabel_nilai_unik)]</span>
+<span id="cb14-12"><a href="a2-deskriptif.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(modus_nilai_unik)</span>
+<span id="cb14-13"><a href="a2-deskriptif.html#cb14-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-14"><a href="a2-deskriptif.html#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="a2-deskriptif.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydata)   <span class="co"># mendapatkan nilai rataan</span></span></code></pre></div>
+<pre><code>## [1] 5.843333</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="a2-deskriptif.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(mydata) <span class="co"># mendapatkan nilai median</span></span></code></pre></div>
+<pre><code>## [1] 5.8</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="a2-deskriptif.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modus</span>(mydata)  <span class="co"># mendapatkan nilai modus</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="a2-deskriptif.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ukuran penyebaran</span></span>
+<span id="cb20-2"><a href="a2-deskriptif.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mydata)      <span class="co"># mendapatkan nilai paling kecil pada data</span></span></code></pre></div>
+<pre><code>## [1] 4.3</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="a2-deskriptif.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(mydata)      <span class="co"># mendapatkan nilai paling tinggi pada data</span></span></code></pre></div>
+<pre><code>## [1] 7.9</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a2-deskriptif.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(mydata)      <span class="co"># mendapatkan nilai ragam</span></span></code></pre></div>
+<pre><code>## [1] 0.6856935</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="a2-deskriptif.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(mydata)       <span class="co"># mendapatkan nilai deviasi standar</span></span></code></pre></div>
+<pre><code>## [1] 0.8280661</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="a2-deskriptif.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(mydata) <span class="co"># mendapatkan nilai skewness</span></span></code></pre></div>
+<pre><code>## [1] 0.3117531</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="a2-deskriptif.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosis</span>(mydata) <span class="co"># mendapatkan nilai kurtosis</span></span></code></pre></div>
+<pre><code>## [1] 2.426432</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Selain dengan cara diatas, pemanfaatan paket <code>tidyverse</code> juga dapat dilakukan. Seperti pada contoh berikut:</li>
+</ol>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="a2-deskriptif.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="a2-deskriptif.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="a2-deskriptif.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal.Length = sl</span></span>
+<span id="cb32-4"><a href="a2-deskriptif.html#cb32-4" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
+<span id="cb32-5"><a href="a2-deskriptif.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">rataan_sl =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb32-6"><a href="a2-deskriptif.html#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">median_sl =</span> <span class="fu">median</span>(Sepal.Length),</span>
+<span id="cb32-7"><a href="a2-deskriptif.html#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">modus_sl  =</span> <span class="fu">modus</span>(Sepal.Length),</span>
+<span id="cb32-8"><a href="a2-deskriptif.html#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_sl    =</span> <span class="fu">min</span>(Sepal.Length),</span>
+<span id="cb32-9"><a href="a2-deskriptif.html#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">maks_sl   =</span> <span class="fu">max</span>(Sepal.Length),</span>
+<span id="cb32-10"><a href="a2-deskriptif.html#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ragam     =</span> <span class="fu">var</span>(Sepal.Length),</span>
+<span id="cb32-11"><a href="a2-deskriptif.html#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ds_sl     =</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb32-12"><a href="a2-deskriptif.html#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">skewness  =</span> <span class="fu">skewness</span>(Sepal.Length),</span>
+<span id="cb32-13"><a href="a2-deskriptif.html#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">kurtosis  =</span> <span class="fu">kurtosis</span>(Sepal.Length)</span>
+<span id="cb32-14"><a href="a2-deskriptif.html#cb32-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##   rataan_sl median_sl modus_sl min_sl maks_sl     ragam     ds_sl  skewness
+## 1  5.843333       5.8        5    4.3     7.9 0.6856935 0.8280661 0.3117531
+##   kurtosis
+## 1 2.426432</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Paket <code>tidyverse</code> juga mendukung peringkasan data berdasarkan kelompok atau kategori tertentu. Seperti pada contoh berikut:</li>
+</ol>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="a2-deskriptif.html#cb34-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
+<span id="cb34-2"><a href="a2-deskriptif.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">rataan_sl =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb34-3"><a href="a2-deskriptif.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">median_sl =</span> <span class="fu">median</span>(Sepal.Length),</span>
+<span id="cb34-4"><a href="a2-deskriptif.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">modus_sl  =</span> <span class="fu">modus</span>(Sepal.Length),</span>
+<span id="cb34-5"><a href="a2-deskriptif.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_sl    =</span> <span class="fu">min</span>(Sepal.Length),</span>
+<span id="cb34-6"><a href="a2-deskriptif.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">maks_sl   =</span> <span class="fu">max</span>(Sepal.Length),</span>
+<span id="cb34-7"><a href="a2-deskriptif.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ragam     =</span> <span class="fu">var</span>(Sepal.Length),</span>
+<span id="cb34-8"><a href="a2-deskriptif.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ds_sl     =</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb34-9"><a href="a2-deskriptif.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">skewness  =</span> <span class="fu">skewness</span>(Sepal.Length),</span>
+<span id="cb34-10"><a href="a2-deskriptif.html#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">kurtosis  =</span> <span class="fu">kurtosis</span>(Sepal.Length)</span>
+<span id="cb34-11"><a href="a2-deskriptif.html#cb34-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 10
+##   Species    rataan_sl median_sl modus_sl min_sl maks_sl ragam ds_sl skewness
+##   &lt;fct&gt;          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 setosa          5.01       5        5.1    4.3     5.8 0.124 0.352    0.116
+## 2 versicolor      5.94       5.9      5.5    4.9     7   0.266 0.516    0.102
+## 3 virginica       6.59       6.5      6.3    4.9     7.9 0.404 0.636    0.114
+## # ℹ 1 more variable: kurtosis &lt;dbl&gt;</code></pre>
+</div>
+<div id="tugas" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> TUGAS<a href="a2-deskriptif.html#tugas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Aktifkan data <code>mpg</code> sebagai bahan latihan.</li>
+<li>Hitung semua ukuran pemusatan dan penyimpangan pada variabel <code>hwy</code> yang telah dibahas pada <a href="a2-deskriptif.html#a2-materi">Materi Acara 2</a>.</li>
+<li>Hitung juga semua ukuran pemusatan dan penyimpangan pada variabel <code>cty</code> berdasarkan kelompok <code>year</code>, <code>model</code>, dan <code>class</code>.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a1-pengenalan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a3-uji-2-sampel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Statistik-Deskriptif.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Aplikasi Komputer - Biostatistika.pdf", "Aplikasi Komputer - Biostatistika.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"bibliography": "Daftar Pustaka",
+"split_by": "chapter",
+"split_bib": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
