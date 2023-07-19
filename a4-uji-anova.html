@@ -615,6 +615,12 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="a4-uji-anova.html#cb85-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
 <span id="cb85-2"><a href="a4-uji-anova.html#cb85-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
 <span id="cb85-3"><a href="a4-uji-anova.html#cb85-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 10
+##   .y.   group1 group2    n1    n2 statistic    df        p    p.adj p.adj.signif
+## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
+## 1 Sepa… setosa versi…    50    50    -10.1     49 1.24e-13 3.72e-13 ****        
+## 2 Sepa… setosa virgi…    50    50    -16.3     49 1.79e-21 5.37e-21 ****        
+## 3 Sepa… versi… virgi…    50    50     -5.28    49 2.99e- 6 8.97e- 6 ****</code></pre>
 <p>Pembacaan hasil ini seperti dengan <a href="#kk-anova">poin 8</a> diatas.</p>
 </div>
 <div id="uji-beda-rerata-2-kelompok-berpasangan" class="section level3 hasAnchor" number="4.5.2">
@@ -622,9 +628,9 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <ol style="list-style-type: decimal">
 <li>Aktifkan data <code>selfesteem</code> pada paket <code>datarium</code> dengan menggunakan perintah berikut:</li>
 </ol>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="a4-uji-anova.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;selfesteem&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarium&quot;</span>)</span>
-<span id="cb86-2"><a href="a4-uji-anova.html#cb86-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> selfesteem</span>
-<span id="cb86-3"><a href="a4-uji-anova.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="a4-uji-anova.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;selfesteem&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarium&quot;</span>)</span>
+<span id="cb87-2"><a href="a4-uji-anova.html#cb87-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> selfesteem</span>
+<span id="cb87-3"><a href="a4-uji-anova.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##      id    t1    t2    t3
 ##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -635,26 +641,26 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 ## 5     5  2.87  3.91  6.46
 ## 6     6  2.05  5.34  6.65</code></pre>
 <p>Apabila paket <code>datarium</code> belum terinstall, maka jalankan perintah <code>install.packages("datarium")</code> terlebih dahulu. Kerena data tidak belum sesuai dengan kebutuhan analisis, maka kita akan persiapkan terlebih dahulu datanya dengan menggunakan perintah berikut:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="a4-uji-anova.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom ID</span></span>
-<span id="cb88-2"><a href="a4-uji-anova.html#cb88-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">=</span> <span class="fu">rep</span>(mydata<span class="sc">$</span>id, <span class="dv">3</span>)</span>
-<span id="cb88-3"><a href="a4-uji-anova.html#cb88-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-4"><a href="a4-uji-anova.html#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom pengulangan dari pengukuran (t1, t2, t3)</span></span>
-<span id="cb88-5"><a href="a4-uji-anova.html#cb88-5" aria-hidden="true" tabindex="-1"></a>time <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;t1&quot;</span>, <span class="st">&quot;t2&quot;</span>, <span class="st">&quot;t3&quot;</span>), <span class="at">each=</span><span class="dv">10</span>)</span>
-<span id="cb88-6"><a href="a4-uji-anova.html#cb88-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-7"><a href="a4-uji-anova.html#cb88-7" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan masing-masing nilai untuk id dan time</span></span>
-<span id="cb88-8"><a href="a4-uji-anova.html#cb88-8" aria-hidden="true" tabindex="-1"></a>value <span class="ot">=</span> <span class="fu">c</span>(mydata<span class="sc">$</span>t1, mydata<span class="sc">$</span>t2, mydata<span class="sc">$</span>t3)</span>
-<span id="cb88-9"><a href="a4-uji-anova.html#cb88-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-10"><a href="a4-uji-anova.html#cb88-10" aria-hidden="true" tabindex="-1"></a><span class="co"># mengganti objek mydata dengan data baru</span></span>
-<span id="cb88-11"><a href="a4-uji-anova.html#cb88-11" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(id, time, value)</span>
-<span id="cb88-12"><a href="a4-uji-anova.html#cb88-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-13"><a href="a4-uji-anova.html#cb88-13" aria-hidden="true" tabindex="-1"></a><span class="co"># cek data</span></span>
-<span id="cb88-14"><a href="a4-uji-anova.html#cb88-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb88-15"><a href="a4-uji-anova.html#cb88-15" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
-<span id="cb88-16"><a href="a4-uji-anova.html#cb88-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb88-17"><a href="a4-uji-anova.html#cb88-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb88-18"><a href="a4-uji-anova.html#cb88-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rataan =</span> <span class="fu">mean</span>(value),</span>
-<span id="cb88-19"><a href="a4-uji-anova.html#cb88-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(value)</span>
-<span id="cb88-20"><a href="a4-uji-anova.html#cb88-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="a4-uji-anova.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom ID</span></span>
+<span id="cb89-2"><a href="a4-uji-anova.html#cb89-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">=</span> <span class="fu">rep</span>(mydata<span class="sc">$</span>id, <span class="dv">3</span>)</span>
+<span id="cb89-3"><a href="a4-uji-anova.html#cb89-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-4"><a href="a4-uji-anova.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom pengulangan dari pengukuran (t1, t2, t3)</span></span>
+<span id="cb89-5"><a href="a4-uji-anova.html#cb89-5" aria-hidden="true" tabindex="-1"></a>time <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;t1&quot;</span>, <span class="st">&quot;t2&quot;</span>, <span class="st">&quot;t3&quot;</span>), <span class="at">each=</span><span class="dv">10</span>)</span>
+<span id="cb89-6"><a href="a4-uji-anova.html#cb89-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-7"><a href="a4-uji-anova.html#cb89-7" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan masing-masing nilai untuk id dan time</span></span>
+<span id="cb89-8"><a href="a4-uji-anova.html#cb89-8" aria-hidden="true" tabindex="-1"></a>value <span class="ot">=</span> <span class="fu">c</span>(mydata<span class="sc">$</span>t1, mydata<span class="sc">$</span>t2, mydata<span class="sc">$</span>t3)</span>
+<span id="cb89-9"><a href="a4-uji-anova.html#cb89-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-10"><a href="a4-uji-anova.html#cb89-10" aria-hidden="true" tabindex="-1"></a><span class="co"># mengganti objek mydata dengan data baru</span></span>
+<span id="cb89-11"><a href="a4-uji-anova.html#cb89-11" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(id, time, value)</span>
+<span id="cb89-12"><a href="a4-uji-anova.html#cb89-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-13"><a href="a4-uji-anova.html#cb89-13" aria-hidden="true" tabindex="-1"></a><span class="co"># cek data</span></span>
+<span id="cb89-14"><a href="a4-uji-anova.html#cb89-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb89-15"><a href="a4-uji-anova.html#cb89-15" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
+<span id="cb89-16"><a href="a4-uji-anova.html#cb89-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb89-17"><a href="a4-uji-anova.html#cb89-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb89-18"><a href="a4-uji-anova.html#cb89-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rataan =</span> <span class="fu">mean</span>(value),</span>
+<span id="cb89-19"><a href="a4-uji-anova.html#cb89-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(value)</span>
+<span id="cb89-20"><a href="a4-uji-anova.html#cb89-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   time      n rataan    sd
 ##   &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -667,10 +673,10 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <li>Uji normalitas. Karena jumlah sampel = 10, maka uji yang digunakan adalah Shapiro-Wilk.</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="a4-uji-anova.html#cb90-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
-<span id="cb90-2"><a href="a4-uji-anova.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb90-3"><a href="a4-uji-anova.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">shapiro.wilk =</span> <span class="fu">shapiro.test</span>(mydata<span class="sc">$</span>value)<span class="sc">$</span>p.value</span>
-<span id="cb90-4"><a href="a4-uji-anova.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="a4-uji-anova.html#cb91-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="a4-uji-anova.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb91-3"><a href="a4-uji-anova.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">shapiro.wilk =</span> <span class="fu">shapiro.test</span>(mydata<span class="sc">$</span>value)<span class="sc">$</span>p.value</span>
+<span id="cb91-4"><a href="a4-uji-anova.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   time  shapiro.wilk
 ##   &lt;chr&gt;        &lt;dbl&gt;
@@ -681,19 +687,19 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <li><p>Hasil Uji Normalitas menunjukan bahwa baik pada setiap kelompok memiliki nilai <code>p-value</code> yang &gt; 0.05. Artinya, Uji Normalitas pada ketiga kelompok memutuskan gagal tolak <span class="math inline">\(H_0\)</span>, sehingga dapat disimpulkan bahwa data pada kelompok berasal dari populasi yang berdistribusi normal. Asumsi normalitas terpenuhi.</p></li>
 <li><p>Pengujian Anova Pengukuran Berulang dilakukan dengan menggunakan perintah berikut:</p></li>
 </ol>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="a4-uji-anova.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Anova Pengukuran Berulang</span></span>
-<span id="cb92-2"><a href="a4-uji-anova.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="a4-uji-anova.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil paket rstatix</span></span>
-<span id="cb92-4"><a href="a4-uji-anova.html#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb92-5"><a href="a4-uji-anova.html#cb92-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-6"><a href="a4-uji-anova.html#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="co"># objek anova pengukuran berulang</span></span>
-<span id="cb92-7"><a href="a4-uji-anova.html#cb92-7" aria-hidden="true" tabindex="-1"></a>aov.rm <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> mydata, </span>
-<span id="cb92-8"><a href="a4-uji-anova.html#cb92-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dv =</span> value, </span>
-<span id="cb92-9"><a href="a4-uji-anova.html#cb92-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">wid =</span> id, </span>
-<span id="cb92-10"><a href="a4-uji-anova.html#cb92-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">within =</span> time)</span>
-<span id="cb92-11"><a href="a4-uji-anova.html#cb92-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-12"><a href="a4-uji-anova.html#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="co"># melihat hasil uji Mauchly&#39;s Test of Spherecity</span></span>
-<span id="cb92-13"><a href="a4-uji-anova.html#cb92-13" aria-hidden="true" tabindex="-1"></a>aov.rm</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="a4-uji-anova.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Anova Pengukuran Berulang</span></span>
+<span id="cb93-2"><a href="a4-uji-anova.html#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="a4-uji-anova.html#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil paket rstatix</span></span>
+<span id="cb93-4"><a href="a4-uji-anova.html#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb93-5"><a href="a4-uji-anova.html#cb93-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-6"><a href="a4-uji-anova.html#cb93-6" aria-hidden="true" tabindex="-1"></a><span class="co"># objek anova pengukuran berulang</span></span>
+<span id="cb93-7"><a href="a4-uji-anova.html#cb93-7" aria-hidden="true" tabindex="-1"></a>aov.rm <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> mydata, </span>
+<span id="cb93-8"><a href="a4-uji-anova.html#cb93-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dv =</span> value, </span>
+<span id="cb93-9"><a href="a4-uji-anova.html#cb93-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">wid =</span> id, </span>
+<span id="cb93-10"><a href="a4-uji-anova.html#cb93-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">within =</span> time)</span>
+<span id="cb93-11"><a href="a4-uji-anova.html#cb93-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-12"><a href="a4-uji-anova.html#cb93-12" aria-hidden="true" tabindex="-1"></a><span class="co"># melihat hasil uji Mauchly&#39;s Test of Spherecity</span></span>
+<span id="cb93-13"><a href="a4-uji-anova.html#cb93-13" aria-hidden="true" tabindex="-1"></a>aov.rm</span></code></pre></div>
 <pre><code>## ANOVA Table (type III tests)
 ## 
 ## $ANOVA
@@ -715,9 +721,9 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <li><p>Uji Lanjut
 Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai uji lanjutnya.</p></li>
 </ol>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="a4-uji-anova.html#cb94-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
-<span id="cb94-2"><a href="a4-uji-anova.html#cb94-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
-<span id="cb94-3"><a href="a4-uji-anova.html#cb94-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="a4-uji-anova.html#cb95-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
+<span id="cb95-2"><a href="a4-uji-anova.html#cb95-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb95-3"><a href="a4-uji-anova.html#cb95-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   .y.   group1 group2    n1    n2 statistic    df           p p.adj p.adj.signif
 ## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
@@ -728,8 +734,8 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 <li>Uji lanjut memberikan hasil dari perbandingan antara ketiga pengukuran. Nilai signifikansi yang digunakan adalah <code>p.adj</code> yaitu nilai <code>p-value</code> yang telah disesuaikan. Hasil ini menunjukkan bahwa terdapat perbedaan rerata antara pengukuran <code>t1</code> dan <code>t2</code> (<code>p.adj &lt; 0.05</code>); terdapat perbedaan rerata antara pengukuran <code>t2</code> dan <code>t3</code> (<code>p.adj &lt; 0.05</code>); dan terdapat perbedaan rerata antara pengukuran <code>t2</code> dan <code>t3</code> (<code>p.adj &lt; 0.05</code>). Pengambilan keputusan dan kesimpulan dari hasil ini mengikuti <a href="#">Hipotesis Uji</a> pada Uji Anova Pengukuran Berulang. {#kk-anova}</li>
 </ol>
 <p>Apabila salah satu kelompok tidak memenui asumsi normalitas tidak terpenuhi, maka uji yang digunakan adalah Uji Friedman dengan perintah sebagai berikut:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="a4-uji-anova.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Friedman</span></span>
-<span id="cb96-2"><a href="a4-uji-anova.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(value <span class="sc">~</span> time <span class="sc">|</span> id, <span class="at">data=</span>mydata)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="a4-uji-anova.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Friedman</span></span>
+<span id="cb97-2"><a href="a4-uji-anova.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(value <span class="sc">~</span> time <span class="sc">|</span> id, <span class="at">data=</span>mydata)</span></code></pre></div>
 <pre><code>## 
 ##  Friedman rank sum test
 ## 
@@ -737,9 +743,15 @@ Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai
 ## Friedman chi-squared = 18.2, df = 2, p-value = 0.0001117</code></pre>
 <p>Berdasarkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> sama dengan 0.0001117 yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa paling sedikit ada satu pengukuran yang berbeda dari pengukuran lainnya.</p>
 <p>Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="a4-uji-anova.html#cb98-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
-<span id="cb98-2"><a href="a4-uji-anova.html#cb98-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
-<span id="cb98-3"><a href="a4-uji-anova.html#cb98-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="a4-uji-anova.html#cb99-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
+<span id="cb99-2"><a href="a4-uji-anova.html#cb99-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb99-3"><a href="a4-uji-anova.html#cb99-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 10
+##   .y.   group1 group2    n1    n2 statistic    df           p p.adj p.adj.signif
+## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+## 1 value t1     t2        10    10     -4.97     9 0.000772     2e-3 **          
+## 2 value t1     t3        10    10    -13.2      9 0.000000334  1e-6 ****        
+## 3 value t2     t3        10    10     -4.87     9 0.000886     3e-3 **</code></pre>
 <p>Pembacaan hasil ini seperti dengan <a href="#kk-anova">poin 8</a> diatas.</p>
 </div>
 </div>
