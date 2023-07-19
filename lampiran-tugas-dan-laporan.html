@@ -23,7 +23,7 @@
 <meta name="author" content="Dimas Wicaksono" />
 
 
-<meta name="date" content="2023-07-17" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-beda-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Beda &gt; 2 Kelompok Bebas</a></li>
 <li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
@@ -277,8 +277,8 @@ SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
 <p>We will approximate standard error to 0.027<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference <a href="a1-pengenalan.html#a1-pengenalan">Acara 1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="a2-deskriptif.html#a2-deskriptif">Acara 2</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="lampiran-tugas-dan-laporan.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
-<span id="cb64-2"><a href="lampiran-tugas-dan-laporan.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="lampiran-tugas-dan-laporan.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb99-2"><a href="lampiran-tugas-dan-laporan.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig"></span>
 <img src="Aplikasi-Komputer---Biostatistika_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
@@ -286,10 +286,10 @@ Gambar 6.1: Here is a nice figure!
 </p>
 </div>
 <p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="lampiran-tugas-dan-laporan.html#fig:nice-fig">6.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="lampiran-tugas-dan-laporan.html#tab:nice-tab">6.1</a>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="lampiran-tugas-dan-laporan.html#cb65-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb65-2"><a href="lampiran-tugas-dan-laporan.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(iris, <span class="dv">20</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb65-3"><a href="lampiran-tugas-dan-laporan.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
-<span id="cb65-4"><a href="lampiran-tugas-dan-laporan.html#cb65-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="lampiran-tugas-dan-laporan.html#cb100-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb100-2"><a href="lampiran-tugas-dan-laporan.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(iris, <span class="dv">20</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb100-3"><a href="lampiran-tugas-dan-laporan.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb100-4"><a href="lampiran-tugas-dan-laporan.html#cb100-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:nice-tab">Tabel 6.1: </span>Here is a nice table!</caption>
 <thead>

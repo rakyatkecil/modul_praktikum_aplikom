@@ -23,7 +23,7 @@
 <meta name="author" content="Dimas Wicaksono" />
 
 
-<meta name="date" content="2023-07-17" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-beda-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Beda &gt; 2 Kelompok Bebas</a></li>
 <li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
@@ -332,14 +332,14 @@ Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<sp
 <li><span class="math inline">\(H_0 :\)</span> Sampel berasal dari populasi yang berdistribusi normal</li>
 <li><span class="math inline">\(H_1 :\)</span> Sampel tidak berasal dari populasi yang berdistribusi normal</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 <li><p><strong>Memiliki ragam antar sampel yang sama (homogen)</strong>.<br />
 Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
 <ul>
 <li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
 <li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 </ul></li>
 <li>Pengujian<br />
 Pengujian ini bergantung pada hasil dari Uji Levene’s. Berikut adalah fungsi pengujiannya:
@@ -431,14 +431,14 @@ Sebelum melakukan uji normalitas. Nilai selisi antara sampel sebelum dan setelah
 <li><span class="math inline">\(H_0 :\)</span> Selisi sampel sebelum dan setelah berasal dari populasi yang berdistribusi normal</li>
 <li><span class="math inline">\(H_1 :\)</span> Selisi sampel sebelum dan setelah tidak berasal dari populasi yang berdistribusi normal</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 <li><p>Memiliki ragam antar sampel yang sama (homogen).<br />
 Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
 <ul>
 <li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
 <li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 </ul></li>
 <li><p>Pengujian<br />
 Pengujian dapat dilakukan dengan menggunakan fungsi <code>t.test(formula, paired=TRUE)</code>.</p></li>

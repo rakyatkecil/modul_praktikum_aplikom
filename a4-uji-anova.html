@@ -23,7 +23,7 @@
 <meta name="author" content="Dimas Wicaksono" />
 
 
-<meta name="date" content="2023-07-17" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#kegiatan-praktikum-2"><i class="fa fa-check"></i><b>4.5</b> KEGIATAN PRAKTIKUM</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Rerata &gt; 2 Kelompok Bebas</a></li>
+<li class="chapter" data-level="4.5.1" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-beda-2-kelompok-bebas"><i class="fa fa-check"></i><b>4.5.1</b> Uji Beda Beda &gt; 2 Kelompok Bebas</a></li>
 <li class="chapter" data-level="4.5.2" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan"><i class="fa fa-check"></i><b>4.5.2</b> Uji Beda Rerata &gt; 2 Kelompok Berpasangan</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="a4-uji-anova.html"><a href="a4-uji-anova.html#tugas-2"><i class="fa fa-check"></i><b>4.6</b> TUGAS</a></li>
@@ -318,14 +318,14 @@ Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<sp
 <li><span class="math inline">\(H_0 :\)</span> Sampel/Kelompok berasal dari populasi yang berdistribusi normal</li>
 <li><span class="math inline">\(H_1 :\)</span> Sampel/Kelompok tidak berasal dari populasi yang berdistribusi normal</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 <li><p><strong>Tidak terdapat perbedaan ragam atar kelompok (Ragam Homogen)</strong>.<br />
 Pengujian ini dapat dilakukan dengan menggunakan fungsi <code>leveneTest(formula)</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
 <ul>
 <li><span class="math inline">\(H_0 :\)</span> Ragam antara kedua kelompok sama</li>
 <li><span class="math inline">\(H_1 :\)</span> Ragam antara kedua kelompok berbeda</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 </ul></li>
 <li><p>Pengujian<br />
 Pengujian ini bergantung pada hasil dari Uji Levene’s. Berikut adalah fungsi pengujiannya:</p>
@@ -368,13 +368,13 @@ Uji Tukey dapat dilakukan dengan menggunakan fungsi <code>tukey_hsd(formula)</co
 <ol style="list-style-type: decimal">
 <li><p>Asumsi-asumsi</p>
 <ul>
-<li><p><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
-Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
-<li><p><strong>Minimal data berskala ordinal</strong>.<br />
-Dapat dilihat dari jenis datanya.</p></li>
+<li><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</li>
+<li><strong>Minimal data berskala ordinal</strong>.<br />
+Dapat dilihat dari jenis datanya.</li>
 </ul></li>
 <li><p>Pengujian<br />
-Pengujian Kruskal Wallis dapat dilakukan dengan menggunakan fungsi <code>kruskal_test(formula)</code> yang tersedia pada paket <code>agricolae</code>.</p></li>
+Pengujian Kruskal Wallis dapat dilakukan dengan menggunakan fungsi <code>kruskal_test(formula)</code> yang tersedia pada paket <code>rstatix</code>.</p></li>
 <li><p>Pengambilan Keputusan dan Kesimpulan<br />
 Pengujian dengan Uji Kruskal Wallis akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p-value</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#">Hipotesis Uji</a>.</p></li>
 <li><p>Uji Lanjut
@@ -388,7 +388,7 @@ Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yan
 </div>
 <div id="uji-beda-2-kelompok-berpasangan" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Uji Beda &gt; 2 Kelompok Berpasangan<a href="a4-uji-anova.html#uji-beda-2-kelompok-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Uji Beda &gt; 2 Kelompok Berpasangan merupakan uji yang ditujukan kepada sebuah percobaan/penelitian yang dilakukan pengukuran secara berulang lebih dari dua kali. Mirip seperti Uji t Sampel Berpasangan, yang membedakan adalah jumlah pengukuran yang dilakukan pada masing-masing subjek. Uji Beda &gt; 2 Kelompok Berpasangan dapat dilakukan dengan menggunakan Uji Anova Pengukuran Berulang dan Uji Friedman sebagai uji alternatif bila asumsi pada Uji Anova Pengukuran Berulang tidak terpenuhi.</p>
+<p>Uji Beda &gt; 2 Kelompok Berpasangan merupakan uji yang ditujukan kepada sebuah percobaan/penelitian yang dilakukan pengukuran secara berulang lebih dari dua kali. Mirip seperti Uji t Sampel Berpasangan, yang membedakan adalah jumlah pengukuran yang dilakukan pada masing-masing subjek. Uji Beda &gt; 2 Kelompok Berpasangan dapat dilakukan dengan menggunakan Uji Anova Pengukuran Berulang dan Uji Friedman sebagai uji alternatif bila asumsi normalitas pada Uji Anova Pengukuran Berulang tidak terpenuhi.</p>
 <div id="anova-pengukuran-berulang" class="section level4 hasAnchor" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Anova Pengukuran Berulang<a href="a4-uji-anova.html#anova-pengukuran-berulang" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Uji Anova Pengukuran Berulang digunakan untuk mengetahui apakah ada perbedaan rataan dari hasil pengukuran subjek yang dilakukan secara berulang. Uji ini termasuk dalam metode statistika parametrik.</p>
@@ -406,7 +406,7 @@ Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yan
 </div>
 <div id="asumsi-uji-4" class="section level5 hasAnchor" number="4.4.2.1.2">
 <h5><span class="header-section-number">4.4.2.1.2</span> Asumsi Uji<a href="a4-uji-anova.html#asumsi-uji-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Terdapat tiga asumsi untuk melakukan Uji Anova, yaitu:</p>
+<p>Terdapat tiga asumsi untuk melakukan Uji Anova Pengukuran Berulang, yaitu:</p>
 <ol style="list-style-type: decimal">
 <li>Observasi data diambil secara acak dan bebas. Bebas yang dimaksud adalah hasil observasi satu dengan yang lain tidak saling berhubungan atau mempengaruhi.</li>
 <li>Setiap kelompok pengukuran berasal dari populasi yang berdistribusi normal. Apabila asumsi ini tidak terpenuhi, maka Uji Anova Pengukuran Berulang tidak dapat dilakukan. Sebagai gantinya akan digunakan metode statistika non-parametrik yaitu Uji Friedman.</li>
@@ -427,14 +427,14 @@ Terdapat 2 uji normalitas, yaitu Uji Shapiro-Wilk untuk jumlah sampel kecil (<sp
 <li><span class="math inline">\(H_0 :\)</span> Sampel/Kelompok berasal dari populasi yang berdistribusi normal</li>
 <li><span class="math inline">\(H_1 :\)</span> Sampel/Kelompok tidak berasal dari populasi yang berdistribusi normal</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 <li><p><strong>Tidak terdapat perbedaan ragam dari selisih antara nilai pengukuran (Asumsi Kebulatan atau lebih dikenal dengan <em>Assumption of Sphericity</em>)</strong>.<br />
 Pengujian ini langsung dilakukan dengan menggunakan fungsi <code>anova_test()</code> yang tersedia pada paket <code>car</code>. Hipotesis pengujiannya adalah</p>
 <ul>
 <li><span class="math inline">\(H_0 :\)</span> Ragam dari selisih antara kelompok sama</li>
 <li><span class="math inline">\(H_1 :\)</span> Ragam dari selisih antara kelompok berbeda</li>
 </ul>
-<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>.</p></li>
+<p>Pengambilan keputusan berdasarkan nilai signifikasnsi. Keputusan gagal tolak <span class="math inline">\(H_0\)</span> jika nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>, dan terima <span class="math inline">\(H_1\)</span> jika nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>.</p></li>
 </ul></li>
 <li>Pengujian<br />
 Pengujian ini bergantung pada hasil dari Uji <em>Mauchly’s Test of Sphericity</em>. Berikut adalah fungsi pengujiannya:</li>
@@ -461,22 +461,295 @@ Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yan
 <span id="cb63-3"><a href="a4-uji-anova.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="friedmanns" class="section level4 hasAnchor" number="4.4.2.2">
-<h4><span class="header-section-number">4.4.2.2</span> Friedmann’s<a href="a4-uji-anova.html#friedmanns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="friedmann" class="section level4 hasAnchor" number="4.4.2.2">
+<h4><span class="header-section-number">4.4.2.2</span> Friedmann<a href="a4-uji-anova.html#friedmann" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uji Friedman merupakan bagian dari metode statistika non-parametrik. Uji ini digunakan apabila asumsi normalitas pada Uji Pengukuran Berulang tidak terpenuhi.</p>
+<div id="hipotesis-uji-3" class="section level5 hasAnchor" number="4.4.2.2.1">
+<h5><span class="header-section-number">4.4.2.2.1</span> Hipotesis Uji<a href="a4-uji-anova.html#hipotesis-uji-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Hipotesis ini digunakan untuk menguji apakah terdapat minimal satu pengukuran yang memiliki perbedaan rataan dari pada pengukuran lainnya. Hipotesis ditulis sebagai berikut:</p>
+<ul>
+<li><span class="math inline">\(H_0 :\)</span> Tidak ada perbedaan antara pengukuran satu dengan lainnya.</li>
+<li><span class="math inline">\(H_1 :\)</span> Sedikitnya ada satu pengukuran yang berbeda dengan pengukuran yang lain.</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> merupakan hipotesis yang menunjukkan bahwa tidak ada perbedaan antar pengukuran. Sedangkan <span class="math inline">\(H_1\)</span> adalah kebalikannya, yaitu paling tidak terdapat satu pengukuran yang berbeda dari pengukuran lainnya. Pengambilan keputusannya adalah sebagai berikut:
+1. Gagal menolak <span class="math inline">\(H_0\)</span> apabila nilai signifikansi <span class="math inline">\(&lt;= 0.05\)</span>. Maka kesimpulan pengujiannya adalah tidak ada perbedaan antar pengukuran.
+2. Terima <span class="math inline">\(H_1\)</span> apabila nilai signifikansi <span class="math inline">\(&gt; 0.05\)</span>. Maka kesimpulan pengujiannya adalah paling sedikit terdapat satu pengukuran yang berbeda dengan pengukuran lainnya.</p>
+</div>
+<div id="asumsi-uji-5" class="section level5 hasAnchor" number="4.4.2.2.2">
+<h5><span class="header-section-number">4.4.2.2.2</span> Asumsi Uji<a href="a4-uji-anova.html#asumsi-uji-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Terdapat tiga asumsi untuk melakukan Uji Anova, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li>Observasi data diambil secara acak dan bebas. Bebas yang dimaksud adalah hasil observasi satu dengan yang lain tidak saling berhubungan atau mempengaruhi.</li>
+<li>Minimal data yang digunakan adalah berskala ordinal.</li>
+</ol>
+</div>
+<div id="langkah-langkah-pengujian-7" class="section level5 hasAnchor" number="4.4.2.2.3">
+<h5><span class="header-section-number">4.4.2.2.3</span> Langkah-langkah Pengujian<a href="a4-uji-anova.html#langkah-langkah-pengujian-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Uji Friedman memiliki empat langkah dalam pengujiannya. Pertama adalah memastikan bahwa data telah memenuhi asumsi-asumsi pengujian, kemudian dilanjutkan dengan melakukan pengujian. Setelah itu, adalah menentukan apakah hasil nilai signifikansi gagal menolak <span class="math inline">\(H_0\)</span> atau menerima <span class="math inline">\(H_1\)</span>. Langkah terakhir adalah uji lanjut ( <em>post hoc</em> ) apabila keputusan pengujian adalah terima <span class="math inline">\(H_1\)</span>. Uji lanjut ini bertujuan untuk mengetahui sampel/kelompok mana saja yang memiliki perbedaan rataan.</p>
+<ol style="list-style-type: decimal">
+<li>Asumsi-asumsi
+<ul>
+<li><p><strong>Observasi data diambil secara acak dan bebas</strong>.<br />
+Asumsi ini akan dijawab dengan melihat bagaimana metode penelitan dan cara pengambilan data.</p></li>
+<li><p><strong>Minimal data yang digunakan adalah berskala ordinal</strong>.<br />
+Dapat dilihat dari jenis datanya.</p></li>
+</ul></li>
+<li>Pengujian<br />
+Pengujian dapat dilakukan dengan menggunakan fungsi berikut:</li>
+</ol>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="a4-uji-anova.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman_test</span>(formula <span class="sc">|</span> id)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Pengambilan Keputusan dan Kesimpulan<br />
+Pengujian dengan Uji Anova Pengukuran akan menghasilkan beberapa nilai. Nilai yang perlu diperhatikan adalah <code>p</code> yang merupakan nilai signifikansi. Pengambilan keputusan telah dijelaskan sebelumnya, begitu pula dalam pengambilan kesimpulan: <a href="#">Hipotesis Uji</a>.</p></li>
+<li><p>Uji Lanjut
+Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="a4-uji-anova.html#cb65-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(formula, </span>
+<span id="cb65-2"><a href="a4-uji-anova.html#cb65-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb65-3"><a href="a4-uji-anova.html#cb65-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+</div>
 </div>
 </div>
 </div>
 <div id="kegiatan-praktikum-2" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> KEGIATAN PRAKTIKUM<a href="a4-uji-anova.html#kegiatan-praktikum-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="uji-beda-rerata-2-kelompok-bebas" class="section level3 hasAnchor" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Uji Beda Rerata &gt; 2 Kelompok Bebas<a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kegiatan praktikum ini akan dibagi menjadi dua pengujian, yaitu uji sampel bebas dan berpasangan. Data yang digunakan pada kegiatan ini adalah data <code>iris</code> untuk uji sampel bebas dan</p>
+<div id="uji-beda-beda-2-kelompok-bebas" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Uji Beda Beda &gt; 2 Kelompok Bebas<a href="a4-uji-anova.html#uji-beda-beda-2-kelompok-bebas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Aktifkan data <code>iris</code> dengan menggunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="a4-uji-anova.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb66-2"><a href="a4-uji-anova.html#cb66-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> iris</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Selanjutnya adalah pengecekan asumsi-asumsi Uji t Sampel Bebas.
+<ul>
+<li>Uji kesamaan ragam antar dua kelompok.</li>
+<li>Uji normalitas. Karena jumlah sampel = 50, maka uji yang digunakan adalah Kolmogorov-Smirnov.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="a4-uji-anova.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) <span class="co"># mengaktifkan paket car</span></span>
+<span id="cb67-2"><a href="a4-uji-anova.html#cb67-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> iris</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="a4-uji-anova.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Levene&#39;s </span></span>
+<span id="cb68-2"><a href="a4-uji-anova.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> mydata, <span class="at">centered=</span><span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median: &quot;mean&quot;)
+##        Df F value   Pr(&gt;F)   
+## group   2  6.3527 0.002259 **
+##       147                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="a4-uji-anova.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji normalitas Sepal.Length untuk kelompok setosa</span></span>
+<span id="cb70-2"><a href="a4-uji-anova.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length, <span class="st">&quot;pnorm&quot;</span>, </span>
+<span id="cb70-3"><a href="a4-uji-anova.html#cb70-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean=</span><span class="fu">mean</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb70-4"><a href="a4-uji-anova.html#cb70-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd=</span><span class="fu">sd</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>,]<span class="sc">$</span>Sepal.Length))</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(mydata[mydata$Species == &quot;setosa&quot;, ]$Sepal.Length, :
+## ties should not be present for the Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  mydata[mydata$Species == &quot;setosa&quot;, ]$Sepal.Length
+## D = 0.11486, p-value = 0.5245
+## alternative hypothesis: two-sided</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="a4-uji-anova.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji normalitas Sepal.Length untuk kelompok versicolor</span></span>
+<span id="cb73-2"><a href="a4-uji-anova.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>,]<span class="sc">$</span>Sepal.Length, <span class="st">&quot;pnorm&quot;</span>, </span>
+<span id="cb73-3"><a href="a4-uji-anova.html#cb73-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean=</span><span class="fu">mean</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>,]<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb73-4"><a href="a4-uji-anova.html#cb73-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd=</span><span class="fu">sd</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>,]<span class="sc">$</span>Sepal.Length))</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(mydata[mydata$Species ==
+## &quot;versicolor&quot;, ]$Sepal.Length, : ties should not be present for the
+## Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  mydata[mydata$Species == &quot;versicolor&quot;, ]$Sepal.Length
+## D = 0.096241, p-value = 0.7434
+## alternative hypothesis: two-sided</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="a4-uji-anova.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji normalitas Sepal.Length untuk kelompok virginica</span></span>
+<span id="cb76-2"><a href="a4-uji-anova.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length, <span class="st">&quot;pnorm&quot;</span>, </span>
+<span id="cb76-3"><a href="a4-uji-anova.html#cb76-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean=</span><span class="fu">mean</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb76-4"><a href="a4-uji-anova.html#cb76-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd=</span><span class="fu">sd</span>(mydata[mydata<span class="sc">$</span>Species<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>,]<span class="sc">$</span>Sepal.Length))</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(mydata[mydata$Species ==
+## &quot;virginica&quot;, ]$Sepal.Length, : ties should not be present for the
+## Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  mydata[mydata$Species == &quot;virginica&quot;, ]$Sepal.Length
+## D = 0.11503, p-value = 0.5225
+## alternative hypothesis: two-sided</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Hasil Uji Normalitas menunjukan bahwa baik pada setiap kelompok memiliki nilai <code>p-value</code> yang &gt; 0.05. Artinya, Uji Normalitas pada ketiga kelompok memutuskan gagal tolak <span class="math inline">\(H_0\)</span>, sehingga dapat disimpulkan bahwa data pada kelompok berasal dari populasi yang berdistribusi normal. Asumsi normalitas terpenuhi, sehingga uji yang digunakan adalah Uji Anova.</p></li>
+<li><p>Hasil Uji Levene’s menunjukkan nilai <code>p-value</code> adalah sebesar <code>0.002259</code>. Artinya nilai signifikansi &lt; 0.05 (0.002259 &lt; 0.05). Sehingga keputusan uji adalah tolak <span class="math inline">\(H_0\)</span> dengan kesimpulannya adalah ragam antar dua kelompok tidak sama. Hasil ini sebagai dasar penentuan fungsi Uji Welch Anova Satu Arah untuk Uji Anova dengan ragam antar kelompok tidak sama (tak homogen).</p></li>
+<li><p>Pengujian dilakukan dengan menggunakan perintah berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="a4-uji-anova.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Welch Anova Satu Arah</span></span>
+<span id="cb79-2"><a href="a4-uji-anova.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> mydata, <span class="at">var.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  One-way analysis of means (not assuming equal variances)
+## 
+## data:  Sepal.Length and Species
+## F = 138.91, num df = 2.000, denom df = 92.211, p-value &lt; 2.2e-16</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Berdasrkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> lebih kecil dari <span class="math inline">\(2.2 \times 10^{-16}\)</span> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa paling sedikit ada satu kelompok yang memiliki perbedaan rataan dari kelompok lainnya.</p></li>
+<li><p>Uji Lanjut
+Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai uji lanjutnya.</p></li>
+</ol>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="a4-uji-anova.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">games_howell_test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> mydata)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 8
+##   .y.          group1   group2 estimate conf.low conf.high    p.adj p.adj.signif
+## * &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
+## 1 Sepal.Length setosa   versi…    0.93     0.719     1.14  2.86e-10 ****        
+## 2 Sepal.Length setosa   virgi…    1.58     1.34      1.83  0        ****        
+## 3 Sepal.Length versico… virgi…    0.652    0.376     0.928 5.58e- 7 ****</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Uji lanjut memberikan hasil dari perbandingan antara kedua kelompok. Nilai signifikansi yang digunakan adalah <code>p.adj</code> yaitu nilai <code>p-value</code> yang telah disesuaikan. Hasil ini menunjukkan bahwa terdapat perbedaan rerata <code>Sepal.Length</code> antara kelompok <code>setosa</code> dan <code>versicolor</code> (<code>p.adj &lt; 0.05</code>); terdapat perbedaan rerata <code>Sepal.Length</code> antara kelompok <code>setosa</code> dan <code>virginica</code> (<code>p.adj &lt; 0.05</code>); dan terdapat perbedaan rerata <code>Sepal.Length</code> antara kelompok <code>versicolor</code> dan <code>virginica</code> (<code>p.adj &lt; 0.05</code>). Pengambilan keputusan dan kesimpulan dari hasil ini mengikuti <a href="#">Hipotesis Uji</a> pada Uji Anova Satu Arah {#kk-anova}</li>
+</ol>
+<p>Apabila salah satu kelompok tidak memenui asumsi normalitas tidak terpenuhi, maka uji yang digunakan adalah Uji Kruskal Wallis dengan perintah sebagai berikut:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="a4-uji-anova.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Kruskal Wallis</span></span>
+<span id="cb83-2"><a href="a4-uji-anova.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal_test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data=</span>mydata)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 6
+##   .y.              n statistic    df        p method        
+## * &lt;chr&gt;        &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;         
+## 1 Sepal.Length   150      96.9     2 8.92e-22 Kruskal-Wallis</code></pre>
+<p>Berdasrkan hasil tersebut, didapatkan bahwa nilai <code>p</code> lebih kecil dari <span class="math inline">\(8.92 \times 10^{-22}\)</span> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa paling sedikit ada satu kelompok yang memiliki perbedaan rataan dari kelompok lainnya.</p>
+<p>Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="a4-uji-anova.html#cb85-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
+<span id="cb85-2"><a href="a4-uji-anova.html#cb85-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb85-3"><a href="a4-uji-anova.html#cb85-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<p>Pembacaan hasil ini seperti dengan <a href="#kk-anova">poin 8</a> diatas.</p>
 </div>
 <div id="uji-beda-rerata-2-kelompok-berpasangan" class="section level3 hasAnchor" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> Uji Beda Rerata &gt; 2 Kelompok Berpasangan<a href="a4-uji-anova.html#uji-beda-rerata-2-kelompok-berpasangan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Aktifkan data <code>selfesteem</code> pada paket <code>datarium</code> dengan menggunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="a4-uji-anova.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;selfesteem&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarium&quot;</span>)</span>
+<span id="cb86-2"><a href="a4-uji-anova.html#cb86-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> selfesteem</span>
+<span id="cb86-3"><a href="a4-uji-anova.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##      id    t1    t2    t3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1  4.01  5.18  7.11
+## 2     2  2.56  6.91  6.31
+## 3     3  3.24  4.44  9.78
+## 4     4  3.42  4.71  8.35
+## 5     5  2.87  3.91  6.46
+## 6     6  2.05  5.34  6.65</code></pre>
+<p>Apabila paket <code>datarium</code> belum terinstall, maka jalankan perintah <code>install.packages("datarium")</code> terlebih dahulu. Kerena data tidak belum sesuai dengan kebutuhan analisis, maka kita akan persiapkan terlebih dahulu datanya dengan menggunakan perintah berikut:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="a4-uji-anova.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom ID</span></span>
+<span id="cb88-2"><a href="a4-uji-anova.html#cb88-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">=</span> <span class="fu">rep</span>(mydata<span class="sc">$</span>id, <span class="dv">3</span>)</span>
+<span id="cb88-3"><a href="a4-uji-anova.html#cb88-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-4"><a href="a4-uji-anova.html#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan kolom pengulangan dari pengukuran (t1, t2, t3)</span></span>
+<span id="cb88-5"><a href="a4-uji-anova.html#cb88-5" aria-hidden="true" tabindex="-1"></a>time <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;t1&quot;</span>, <span class="st">&quot;t2&quot;</span>, <span class="st">&quot;t3&quot;</span>), <span class="at">each=</span><span class="dv">10</span>)</span>
+<span id="cb88-6"><a href="a4-uji-anova.html#cb88-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-7"><a href="a4-uji-anova.html#cb88-7" aria-hidden="true" tabindex="-1"></a><span class="co"># persiapkan masing-masing nilai untuk id dan time</span></span>
+<span id="cb88-8"><a href="a4-uji-anova.html#cb88-8" aria-hidden="true" tabindex="-1"></a>value <span class="ot">=</span> <span class="fu">c</span>(mydata<span class="sc">$</span>t1, mydata<span class="sc">$</span>t2, mydata<span class="sc">$</span>t3)</span>
+<span id="cb88-9"><a href="a4-uji-anova.html#cb88-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-10"><a href="a4-uji-anova.html#cb88-10" aria-hidden="true" tabindex="-1"></a><span class="co"># mengganti objek mydata dengan data baru</span></span>
+<span id="cb88-11"><a href="a4-uji-anova.html#cb88-11" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(id, time, value)</span>
+<span id="cb88-12"><a href="a4-uji-anova.html#cb88-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-13"><a href="a4-uji-anova.html#cb88-13" aria-hidden="true" tabindex="-1"></a><span class="co"># cek data</span></span>
+<span id="cb88-14"><a href="a4-uji-anova.html#cb88-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb88-15"><a href="a4-uji-anova.html#cb88-15" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
+<span id="cb88-16"><a href="a4-uji-anova.html#cb88-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb88-17"><a href="a4-uji-anova.html#cb88-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb88-18"><a href="a4-uji-anova.html#cb88-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rataan =</span> <span class="fu">mean</span>(value),</span>
+<span id="cb88-19"><a href="a4-uji-anova.html#cb88-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(value)</span>
+<span id="cb88-20"><a href="a4-uji-anova.html#cb88-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 4
+##   time      n rataan    sd
+##   &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 t1       10   3.14 0.552
+## 2 t2       10   4.93 0.863
+## 3 t3       10   7.64 1.14</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Selanjutnya adalah pengecekan asumsi-asumsi Uji Anova Pengukuran Berulang.
+<ul>
+<li>Uji normalitas. Karena jumlah sampel = 10, maka uji yang digunakan adalah Shapiro-Wilk.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="a4-uji-anova.html#cb90-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span> </span>
+<span id="cb90-2"><a href="a4-uji-anova.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb90-3"><a href="a4-uji-anova.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">shapiro.wilk =</span> <span class="fu">shapiro.test</span>(mydata<span class="sc">$</span>value)<span class="sc">$</span>p.value</span>
+<span id="cb90-4"><a href="a4-uji-anova.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   time  shapiro.wilk
+##   &lt;chr&gt;        &lt;dbl&gt;
+## 1 t1           0.158
+## 2 t2           0.158
+## 3 t3           0.158</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Hasil Uji Normalitas menunjukan bahwa baik pada setiap kelompok memiliki nilai <code>p-value</code> yang &gt; 0.05. Artinya, Uji Normalitas pada ketiga kelompok memutuskan gagal tolak <span class="math inline">\(H_0\)</span>, sehingga dapat disimpulkan bahwa data pada kelompok berasal dari populasi yang berdistribusi normal. Asumsi normalitas terpenuhi.</p></li>
+<li><p>Pengujian Anova Pengukuran Berulang dilakukan dengan menggunakan perintah berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="a4-uji-anova.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Anova Pengukuran Berulang</span></span>
+<span id="cb92-2"><a href="a4-uji-anova.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="a4-uji-anova.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil paket rstatix</span></span>
+<span id="cb92-4"><a href="a4-uji-anova.html#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb92-5"><a href="a4-uji-anova.html#cb92-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-6"><a href="a4-uji-anova.html#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="co"># objek anova pengukuran berulang</span></span>
+<span id="cb92-7"><a href="a4-uji-anova.html#cb92-7" aria-hidden="true" tabindex="-1"></a>aov.rm <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> mydata, </span>
+<span id="cb92-8"><a href="a4-uji-anova.html#cb92-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dv =</span> value, </span>
+<span id="cb92-9"><a href="a4-uji-anova.html#cb92-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">wid =</span> id, </span>
+<span id="cb92-10"><a href="a4-uji-anova.html#cb92-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">within =</span> time)</span>
+<span id="cb92-11"><a href="a4-uji-anova.html#cb92-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-12"><a href="a4-uji-anova.html#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="co"># melihat hasil uji Mauchly&#39;s Test of Spherecity</span></span>
+<span id="cb92-13"><a href="a4-uji-anova.html#cb92-13" aria-hidden="true" tabindex="-1"></a>aov.rm</span></code></pre></div>
+<pre><code>## ANOVA Table (type III tests)
+## 
+## $ANOVA
+##   Effect DFn DFd      F        p p&lt;.05   ges
+## 1   time   2  18 55.469 2.01e-08     * 0.829
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##   Effect     W     p p&lt;.05
+## 1   time 0.551 0.092      
+## 
+## $`Sphericity Corrections`
+##   Effect  GGe      DF[GG]    p[GG] p[GG]&lt;.05   HFe      DF[HF]    p[HF]
+## 1   time 0.69 1.38, 12.42 2.16e-06         * 0.774 1.55, 13.94 6.03e-07
+##   p[HF]&lt;.05
+## 1         *</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Berdasarkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> pada hasil <code>$ANOVA</code> lebih kecil dari <span class="math inline">\(2.01 \times 10^{-8}\)</span> yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa paling sedikit ada satu hasil pengukuran yang memiliki perbedaan rataan dari pengukuran lainnya.</p></li>
+<li><p>Hasil Uji Mauchly’s Test for Sphericity ditunjukkan pada <code>$Mauchly's Test for Sphericity</code>. Nilai <code>p</code> yang sama dengan 0.092 menunjukkan bahwa <code>p-value</code> lebih besar dari 0.05. Sehingga dapat disimpulkan bahwa ragam dari selisih antar kelompok adalah sama (Gagal menolak <span class="math inline">\(H_0\)</span>).</p></li>
+<li><p>Uji Lanjut
+Ketaksamaan ragam antar kelompok menyebabkan penggunaan Uji Games Howell sebagai uji lanjutnya.</p></li>
+</ol>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="a4-uji-anova.html#cb94-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
+<span id="cb94-2"><a href="a4-uji-anova.html#cb94-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb94-3"><a href="a4-uji-anova.html#cb94-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 10
+##   .y.   group1 group2    n1    n2 statistic    df           p p.adj p.adj.signif
+## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+## 1 value t1     t2        10    10     -4.97     9 0.000772     2e-3 **          
+## 2 value t1     t3        10    10    -13.2      9 0.000000334  1e-6 ****        
+## 3 value t2     t3        10    10     -4.87     9 0.000886     3e-3 **</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Uji lanjut memberikan hasil dari perbandingan antara ketiga pengukuran. Nilai signifikansi yang digunakan adalah <code>p.adj</code> yaitu nilai <code>p-value</code> yang telah disesuaikan. Hasil ini menunjukkan bahwa terdapat perbedaan rerata antara pengukuran <code>t1</code> dan <code>t2</code> (<code>p.adj &lt; 0.05</code>); terdapat perbedaan rerata antara pengukuran <code>t2</code> dan <code>t3</code> (<code>p.adj &lt; 0.05</code>); dan terdapat perbedaan rerata antara pengukuran <code>t2</code> dan <code>t3</code> (<code>p.adj &lt; 0.05</code>). Pengambilan keputusan dan kesimpulan dari hasil ini mengikuti <a href="#">Hipotesis Uji</a> pada Uji Anova Pengukuran Berulang. {#kk-anova}</li>
+</ol>
+<p>Apabila salah satu kelompok tidak memenui asumsi normalitas tidak terpenuhi, maka uji yang digunakan adalah Uji Friedman dengan perintah sebagai berikut:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="a4-uji-anova.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uji Friedman</span></span>
+<span id="cb96-2"><a href="a4-uji-anova.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(value <span class="sc">~</span> time <span class="sc">|</span> id, <span class="at">data=</span>mydata)</span></code></pre></div>
+<pre><code>## 
+##  Friedman rank sum test
+## 
+## data:  value and time and id
+## Friedman chi-squared = 18.2, df = 2, p-value = 0.0001117</code></pre>
+<p>Berdasarkan hasil tersebut, didapatkan bahwa nilai <code>p-value</code> sama dengan 0.0001117 yang artinya bahwa nilai signifikansi &lt; 0.05. Keputusan dari hasil ini adalah terima <span class="math inline">\(H_1\)</span>, sehingga dapat disimpulkan bahwa paling sedikit ada satu pengukuran yang berbeda dari pengukuran lainnya.</p>
+<p>Uji yang dapat digunakan adalah Uji Bonferroni dengan nilai <em>p-value</em> yang disesuaikan (<code>adjusted p-values</code>). Untuk mendapatkan hasil uji lanjut dengan menggunakan metode ini, gunakan fungsi berikut:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="a4-uji-anova.html#cb98-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="sc">%&gt;%</span> <span class="fu">pairwise_t_test</span>(value <span class="sc">~</span> time, </span>
+<span id="cb98-2"><a href="a4-uji-anova.html#cb98-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb98-3"><a href="a4-uji-anova.html#cb98-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<p>Pembacaan hasil ini seperti dengan <a href="#kk-anova">poin 8</a> diatas.</p>
 </div>
 </div>
 <div id="tugas-2" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> TUGAS<a href="a4-uji-anova.html#tugas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Aktifkan data <code>iris</code> dan <code>selfesteem</code> pada Program R.</li>
+<li>Lakukan analisis deskriptif pada data tersebut.</li>
+<li>Ujilah apakah terdapat perbedaan antar kelompok/pengukuran dari kedua data tersebut.</li>
+</ol>
 
 </div>
 </div>
